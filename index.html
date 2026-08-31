@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Ferretería Los Maestros - Venta de materiales de construcción, herramientas y ferretería general en La Serena.">
+    <title>Inicio | Ferretería Los Maestros</title>
+    <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+
+<body>
+    <!-- Enlace contenido principal -->
+    <a class="salto-contenido" href="#contenido-principal">Ir al contenido</a>
+
+    <!-- Cabecera principal -->
+    <header class="cabecera-sitio">
+        <div class="barra-superior">
+            <a class="marca" href="index.html">🔨 Ferretería Los Maestros</a>
+
+            <!-- Navegación principal -->
+            <nav aria-label="Navegación principal">
+                <ul class="menu">
+                    <li><a href="index.html" aria-current="page">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <!-- Carrito de compras -->
+            <div class="acciones-usuario">
+                <a class="enlace-carrito" href="carrito.html">🛒 Carrito (<span id="cant-carrito">0</span>)</a>
+                <div class="enlaces-auth">
+                    <a href="login.html">Iniciar sesión</a> |
+                    <a href="registro.html">Registrar usuario</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main id="contenido-principal">
+
+        <!-- Presentación -->
+        <section class="presentacion">
+            <p class="etiqueta">Materiales & Herramientas en La Serena</p>
+            <h1>Construye con la confianza de los verdaderos maestros</h1>
+            <p>Más de 22 años equipando a maestros de obra, contratistas y familias de la Región de Coquimbo con stock
+                garantizado.</p>
+            <a class="boton" href="productos.html">Ver catálogo de productos</a>
+        </section>
+
+        <!-- Catálogo de Productos Destacados -->
+        <section class="seccion-catalogo" aria-labelledby="titulo-productos">
+            <h2 id="titulo-productos">Productos Destacados</h2>
+
+            <div class="grilla-tarjetas">
+                <!-- Producto 1 -->
+                <article class="tarjeta">
+                    <img src="assets/img/taladro.jpg" alt="Taladro Percutor Inalámbrico 20V">
+                    <span class="categoria-badge">Herramientas Eléctricas</span>
+                    <h3>Taladro Percutor 20V</h3>
+                    <p class="precio">$59.990</p>
+                    <a class="boton-tarjeta" href="detalle-producto.html?id=1">Ver detalle</a>
+                </article>
+
+                <!-- Producto 2 -->
+                <article class="tarjeta">
+                    <img src="assets/img/cemento.jpg" alt="Saco de Cemento Especial 25kg">
+                    <span class="categoria-badge">Construcción</span>
+                    <h3>Cemento Especial 25 kg</h3>
+                    <p class="precio">$4.890</p>
+                    <a class="boton-tarjeta" href="detalle-producto.html?id=2">Ver detalle</a>
+                </article>
+
+                <!-- Producto 3 -->
+                <article class="tarjeta">
+                    <img src="assets/img/set-herramientas.jpg" alt="Set de herramientas manuales de 45 piezas">
+                    <span class="categoria-badge">Herramientas Manuales</span>
+                    <h3>Set Herramientas 45 Piezas</h3>
+                    <p class="precio">$24.990</p>
+                    <a class="boton-tarjeta" href="detalle-producto.html?id=3">Ver detalle</a>
+                </article>
+
+                <!-- Producto 4 -->
+                <article class="tarjeta">
+                    <img src="assets/img/tuberia-pvc.jpg" alt="Tubo PVC Sanitario 110mm x 3m">
+                    <span class="categoria-badge">Gasfitería</span>
+                    <h3>Tubo PVC Sanitario 110mm</h3>
+                    <p class="precio">$8.490</p>
+                    <a class="boton-tarjeta" href="detalle-producto.html?id=4">Ver detalle</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Aviso -->
+        <aside class="aviso" aria-labelledby="titulo-aviso">
+            <h2 id="titulo-aviso">¿Eres contratista o maestro de obra?</h2>
+            <p>Crea tu cuenta para consultar stock en tiempo real y gestionar tus compras con cuenta corriente.</p>
+            <a class="boton-secundario" href="registro.html">Crear cuenta contratista</a>
+        </aside>
+    </main>
+
+    <!-- Pie de página (Footer) -->
+    <footer class="pie-sitio">
+        <div class="info-footer">
+            <p><strong>Ferretería Los Maestros</strong></p>
+            <address>
+                📍 Dirección: Av. Principal 1234, La Serena, Región de Coquimbo<br>
+                📞 Teléfono: +56 51 234 5678<br>
+                ✉️ Contacto: <a href="mailto:contacto@losmaestros.cl">contacto@losmaestros.cl</a>
+            </address>
+        </div>
+        <div class="creditos">
+            <p><small>Proyecto académico · DSY1104 Desarrollo FullStack II · Duoc UC</small></p>
+        </div>
+    </footer>
+
+    <!-- Archivo JavaScript  -->
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
