@@ -1,0 +1,126 @@
+<!-- detalle-producto.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detalle del producto en Ferretería Los Maestros.">
+    <title>Detalle de Producto | Ferretería Los Maestros</title>
+    <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+
+<body>
+    <a class="salto-contenido" href="#contenido-principal">Ir al contenido</a>
+
+    <header class="cabecera-sitio">
+        <div class="barra-superior">
+            <a class="marca" href="index.html">🔨 Ferretería Los Maestros</a>
+            <nav aria-label="Navegación principal">
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html" aria-current="page">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="acciones-usuario">
+                <a class="enlace-carrito" href="carrito.html">🛒 Carrito (<span id="cant-carrito">0</span>)</a>
+                <div class="enlaces-auth">
+                    <a href="login.html">Iniciar sesión</a> |
+                    <a href="registro.html">Registrar usuario</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="contenido-principal" class="contenedor-detalle-producto">
+
+        <nav class="miga-de-pan" aria-label="Ruta de navegación">
+            <a href="index.html">Inicio</a> &gt;
+            <a href="productos.html">Herramientas Eléctricas</a> &gt;
+            <span aria-current="location">Taladro Percutor Inalámbrico 20V</span>
+        </nav>
+
+        <section class="vista-producto-principal" aria-labelledby="nombre-producto">
+            <div class="galeria-producto">
+                <div class="imagen-destacada">
+                    <img id="img-principal" src="assets/img/taladro.jpg"
+                        alt="Taladro Percutor Inalámbrico 20V vista principal">
+                </div>
+                <div class="miniaturas-galeria">
+                    <img src="assets/img/taladro.jpg" alt="Vista frontal" class="miniatura activa">
+                    <img src="assets/img/taladro.jpg" alt="Vista con batería" class="miniatura">
+                    <img src="assets/img/taladro.jpg" alt="Vista con maletín" class="miniatura">
+                </div>
+            </div>
+
+            <div class="info-compra-producto">
+                <h1 id="nombre-producto">Taladro Percutor Inalámbrico 20V</h1>
+                <p class="codigo-producto">Código: <strong>HERR-20V-001</strong></p>
+                <p class="precio-grande">$59.990</p>
+
+                <div class="descripcion-completa">
+                    <p>Herramienta eléctrica de alto rendimiento recomendada para perforaciones en concreto, madera y
+                        metales en obras de construcción y remodelaciones.</p>
+                    <ul>
+                        <li>Mandril de ajuste rápido metálico de 13 mm.</li>
+                        <li>2 velocidades mecánicas reversibles (0-450 / 0-1500 RPM).</li>
+                        <li>Incluye 2 baterías de litio 2.0 Ah, cargador rápido y maletín.</li>
+                    </ul>
+                </div>
+
+                <form class="formulario-compra" onsubmit="event.preventDefault();">
+                    <div class="selector-cantidad-compra">
+                        <label for="cantidad-producto">Cantidad:</label>
+                        <input type="number" id="cantidad-producto" name="cantidad" value="1" min="1" max="50">
+                    </div>
+                    <button type="button" class="boton-anadir-grande">Añadir al carrito</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="seccion-relacionados" aria-labelledby="titulo-relacionados">
+            <h2 id="titulo-relacionados">Productos Relacionados</h2>
+            <div class="grilla-tarjetas">
+                <article class="tarjeta">
+                    <img src="assets/img/esmeril.jpg" alt="Esmeril Angular 850W">
+                    <h3>Esmeril Angular 850W</h3>
+                    <p class="precio">$34.990</p>
+                    <a class="boton-tarjeta" href="detalle-producto.html">Ver detalle</a>
+                </article>
+                <article class="tarjeta">
+                    <img src="assets/img/set-herramientas.jpg" alt="Set de Herramientas 45 Piezas">
+                    <h3>Set Herramientas 45 Pzas</h3>
+                    <p class="precio">$24.990</p>
+                    <a class="boton-tarjeta" href="detalle-producto.html">Ver detalle</a>
+                </article>
+                <article class="tarjeta">
+                    <img src="assets/img/cemento.jpg" alt="Cemento Especial 25kg">
+                    <h3>Cemento Especial 25 kg</h3>
+                    <p class="precio">$4.890</p>
+                    <a class="boton-tarjeta" href="detalle-producto.html">Ver detalle</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie-sitio">
+        <div class="info-footer">
+            <p><strong>Ferretería Los Maestros</strong></p>
+            <address>
+                📍 Av. Principal 1234, La Serena, Región de Coquimbo<br>
+                📞 Teléfono: +56 51 234 5678<br>
+                ✉️ Contacto: <a href="mailto:contacto@losmaestros.cl">contacto@losmaestros.cl</a>
+            </address>
+        </div>
+        <div class="creditos">
+            <p><small>Proyecto académico · DSY1104 Desarrollo FullStack II · Duoc UC</small></p>
+        </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

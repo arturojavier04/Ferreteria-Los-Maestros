@@ -1,0 +1,153 @@
+<!-- productos.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catálogo completo de productos de Ferretería Los Maestros en La Serena.">
+    <title>Productos | Ferretería Los Maestros</title>
+    <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+
+<body>
+    <a class="salto-contenido" href="#contenido-principal">Ir al contenido</a>
+
+    <header class="cabecera-sitio">
+        <div class="barra-superior">
+            <a class="marca" href="index.html">🔨 Ferretería Los Maestros</a>
+            <nav aria-label="Navegación principal">
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html" aria-current="page">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="acciones-usuario">
+                <a class="enlace-carrito" href="carrito.html">🛒 Carrito (<span id="cant-carrito">0</span>)</a>
+                <div class="enlaces-auth">
+                    <a href="login.html">Iniciar sesión</a> |
+                    <a href="registro.html">Registrar usuario</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="contenido-principal">
+        <section class="seccion-cabecera-catalogo">
+            <h1>Catálogo de Herramientas y Materiales</h1>
+            <p>Explora nuestro catálogo para contratistas, maestros y obras en La Serena.</p>
+        </section>
+
+        <section class="seccion-productos" aria-labelledby="titulo-catalogo">
+            <h2 id="titulo-catalogo" class="oculto-visual">Listado de productos</h2>
+            <div class="grilla-tarjetas-catalogo" id="contenedor-productos">
+
+                <article class="tarjeta-producto">
+                    <a href="detalle-producto.html">
+                        <img src="assets/img/taladro.jpg" alt="Taladro Percutor Inalámbrico 20V">
+                    </a>
+                    <span class="categoria-badge">Herramientas Eléctricas</span>
+                    <h3><a href="detalle-producto.html">Taladro Percutor Inalámbrico 20V</a></h3>
+                    <p class="descripcion-breve">Incluye 2 baterías de litio y maletín de transporte.</p>
+                    <p class="precio">$59.990</p>
+                    <div class="acciones-producto">
+                        <a class="boton-tarjeta" href="detalle-producto.html">Ver Detalle</a>
+                        <button type="button" class="boton-agregar-carrito">Añadir al Carrito</button>
+                    </div>
+                </article>
+
+                <article class="tarjeta-producto">
+                    <a href="detalle-producto.html">
+                        <img src="assets/img/cemento.jpg" alt="Saco Cemento Especial 25kg">
+                    </a>
+                    <span class="categoria-badge">Construcción</span>
+                    <h3><a href="detalle-producto.html">Cemento Especial 25 kg</a></h3>
+                    <p class="descripcion-breve">Alta resistencia inicial y fraguado óptimo para faena.</p>
+                    <p class="precio">$4.890</p>
+                    <div class="acciones-producto">
+                        <a class="boton-tarjeta" href="detalle-producto.html">Ver Detalle</a>
+                        <button type="button" class="boton-agregar-carrito">Añadir al Carrito</button>
+                    </div>
+                </article>
+
+                <article class="tarjeta-producto">
+                    <a href="detalle-producto.html">
+                        <img src="assets/img/esmeril.jpg" alt="Esmeril Angular 850W">
+                    </a>
+                    <span class="categoria-badge">Herramientas Eléctricas</span>
+                    <h3><a href="detalle-producto.html">Esmeril Angular 4 1/2 850W</a></h3>
+                    <p class="descripcion-breve">Ideal para corte y desbaste en metales y albañilería.</p>
+                    <p class="precio">$34.990</p>
+                    <div class="acciones-producto">
+                        <a class="boton-tarjeta" href="detalle-producto.html">Ver Detalle</a>
+                        <button type="button" class="boton-agregar-carrito">Añadir al Carrito</button>
+                    </div>
+                </article>
+
+                <article class="tarjeta-producto">
+                    <a href="detalle-producto.html">
+                        <img src="assets/img/set-herramientas.jpg" alt="Set de Herramientas Manuales 45 Piezas">
+                    </a>
+                    <span class="categoria-badge">Herramientas Manuales</span>
+                    <h3><a href="detalle-producto.html">Set de Herramientas 45 Piezas</a></h3>
+                    <p class="descripcion-breve">Alicates, destornilladores y llaves en estuche reforzado.</p>
+                    <p class="precio">$24.990</p>
+                    <div class="acciones-producto">
+                        <a class="boton-tarjeta" href="detalle-producto.html">Ver Detalle</a>
+                        <button type="button" class="boton-agregar-carrito">Añadir al Carrito</button>
+                    </div>
+                </article>
+
+                <article class="tarjeta-producto">
+                    <a href="detalle-producto.html">
+                        <img src="assets/img/tuberia-pvc.jpg" alt="Tubo PVC Sanitario 110mm x 3m">
+                    </a>
+                    <span class="categoria-badge">Gasfitería</span>
+                    <h3><a href="detalle-producto.html">Tubo PVC Sanitario 110mm</a></h3>
+                    <p class="descripcion-breve">Tubería de desagüe de 3 metros de alta resistencia.</p>
+                    <p class="precio">$8.490</p>
+                    <div class="acciones-producto">
+                        <a class="boton-tarjeta" href="detalle-producto.html">Ver Detalle</a>
+                        <button type="button" class="boton-agregar-carrito">Añadir al Carrito</button>
+                    </div>
+                </article>
+
+                <article class="tarjeta-producto">
+                    <a href="detalle-producto.html">
+                        <img src="assets/img/pintura.jpg" alt="Tineta Esmalte al Agua Blanco 5 Galones">
+                    </a>
+                    <span class="categoria-badge">Pinturas</span>
+                    <h3><a href="detalle-producto.html">Esmalte al Agua Blanco 5 Gal</a></h3>
+                    <p class="descripcion-breve">Terminación lavable antihongos para muros y fachadas.</p>
+                    <p class="precio">$42.990</p>
+                    <div class="acciones-producto">
+                        <a class="boton-tarjeta" href="detalle-producto.html">Ver Detalle</a>
+                        <button type="button" class="boton-agregar-carrito">Añadir al Carrito</button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie-sitio">
+        <div class="info-footer">
+            <p><strong>Ferretería Los Maestros</strong></p>
+            <address>
+                📍 Av. Principal 1234, La Serena, Región de Coquimbo<br>
+                📞 Teléfono: +56 51 234 5678<br>
+                ✉️ Contacto: <a href="mailto:contacto@losmaestros.cl">contacto@losmaestros.cl</a>
+            </address>
+        </div>
+        <div class="creditos">
+            <p><small>Proyecto académico · DSY1104 Desarrollo FullStack II · Duoc UC</small></p>
+        </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
