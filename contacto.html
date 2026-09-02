@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Contáctate con Ferretería Los Maestros en La Serena. Envíanos tus dudas o cotizaciones.">
+    <title>Contacto | Ferretería Los Maestros</title>
+    <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+
+<body>
+    <a class="salto-contenido" href="#contenido-principal">Ir al contenido</a>
+
+    <!-- Header -->
+    <header class="cabecera-sitio">
+        <div class="barra-superior">
+            <a class="marca" href="index.html">🔨 Ferretería Los Maestros</a>
+            <nav aria-label="Navegación principal">
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="acciones-usuario">
+                <a class="enlace-carrito" href="carrito.html">🛒 Carrito (<span id="cant-carrito">0</span>)</a>
+                <div class="enlaces-auth">
+                    <a href="login.html">Iniciar sesión</a> |
+                    <a href="registro.html">Registrar usuario</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main id="contenido-principal" class="contenedor-formulario">
+        <section class="tarjeta-formulario" aria-labelledby="titulo-contacto">
+            <div class="encabezado-form">
+                <span class="icono-form">✉️</span>
+                <h1 id="titulo-contacto">Formulario de Contacto</h1>
+                <p>¿Tienes dudas con un pedido o requieres una cotización especial? Escríbenos.</p>
+            </div>
+
+            <form id="form-contacto" class="formulario" novalidate>
+                <!-- Nombre completo -->
+                <div class="campo-grupo">
+                    <label for="nombre-contacto">Nombre completo <span class="obligatorio">*</span></label>
+                    <input type="text" id="nombre-contacto" name="nombre" maxlength="100" placeholder="Ej: Juan Pérez"
+                        required>
+                    <small class="mensaje-error" id="error-nombre"></small>
+                </div>
+
+                <!-- Correo electrónico -->
+                <div class="campo-grupo">
+                    <label for="correo-contacto">Correo electrónico <span class="obligatorio">*</span></label>
+                    <input type="email" id="correo-contacto" name="correo" maxlength="100"
+                        placeholder="usuario@duoc.cl o usuario@gmail.com" required>
+                    <small class="sugerencia">Dominios permitidos: @duoc.cl, @profesor.duoc.cl, @gmail.com</small>
+                    <small class="mensaje-error" id="error-correo"></small>
+                </div>
+
+                <!-- Comentario / Mensaje -->
+                <div class="campo-grupo">
+                    <label for="mensaje-contacto">Comentario o Consulta <span class="obligatorio">*</span></label>
+                    <textarea id="mensaje-contacto" name="mensaje" rows="5" maxlength="500"
+                        placeholder="Escribe tu mensaje aquí..." required></textarea>
+                    <small class="contador-caracteres"><span id="chars-mensaje">0</span>/500 caracteres</small>
+                    <small class="mensaje-error" id="error-mensaje"></small>
+                </div>
+
+                <button type="submit" class="boton-enviar">ENVIAR MENSAJE</button>
+                <div id="alerta-exito-contacto" class="alerta-exito oculto">¡Tu mensaje ha sido enviado exitosamente!
+                    Nos contactaremos a la brevedad.</div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="pie-sitio">
+        <div class="info-footer">
+            <p><strong>Ferretería Los Maestros</strong></p>
+            <address>
+                📍 Dirección: Av. Principal 1234, La Serena, Región de Coquimbo<br>
+                📞 Teléfono: +56 51 234 5678<br>
+                ✉️ Contacto: <a href="mailto:contacto@losmaestros.cl">contacto@losmaestros.cl</a>
+            </address>
+        </div>
+        <div class="creditos">
+            <p><small>Proyecto académico · DSY1104 Desarrollo FullStack II · Duoc UC</small></p>
+        </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/validaciones.js"></script>
+</body>
+
+</html>

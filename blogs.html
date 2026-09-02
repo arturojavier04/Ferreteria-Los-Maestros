@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Noticias, consejos de construcción y datos curiosos en el Blog de Ferretería Los Maestros.">
+    <title>Blogs y Noticias | Ferretería Los Maestros</title>
+    <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+
+<body>
+    <a class="salto-contenido" href="#contenido-principal">Ir al contenido</a>
+
+    <!-- Header -->
+    <header class="cabecera-sitio">
+        <div class="barra-superior">
+            <a class="marca" href="index.html">🔨 Ferretería Los Maestros</a>
+            <nav aria-label="Navegación principal">
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="blogs.html" aria-current="page">Blogs</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="acciones-usuario">
+                <a class="enlace-carrito" href="carrito.html">🛒 Carrito (<span id="cant-carrito">0</span>)</a>
+                <div class="enlaces-auth">
+                    <a href="login.html">Iniciar sesión</a> |
+                    <a href="registro.html">Registrar usuario</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main id="contenido-principal">
+        <section class="seccion-cabecera-blog">
+            <h1>NOTICIAS IMPORTANTES & GUÍAS PRÁCTICAS</h1>
+            <p>Consejos técnicos, datos curiosos y recomendaciones para maestros de obra y proyectos del hogar.</p>
+        </section>
+
+        <section class="lista-blogs" aria-labelledby="titulo-articulos">
+            <h2 id="titulo-articulos" class="oculto-visual">Artículos publicados</h2>
+
+            <!-- Noticia / Caso 1 -->
+            <article class="tarjeta-blog-horizontal">
+                <div class="info-blog">
+                    <span class="etiqueta-blog">Guía Técnica #1</span>
+                    <h2>Cómo elegir el cemento adecuado según el clima de La Serena</h2>
+                    <p>Descubre los factores clave al seleccionar mezclas de hormigón en zonas costeras y cómo proteger
+                        tus obras de la humedad marina.</p>
+                    <a class="boton" href="detalle-blog-1.html">VER CASO / LEER ARTÍCULO</a>
+                </div>
+                <div class="imagen-blog">
+                    <img src="assets/img/cemento.jpg" alt="Sacos de cemento en faena">
+                </div>
+            </article>
+
+            <!-- Noticia / Caso 2 -->
+            <article class="tarjeta-blog-horizontal">
+                <div class="info-blog">
+                    <span class="etiqueta-blog">Consejo de Maestros #2</span>
+                    <h2>Mantenimiento de herramientas eléctricas: alarga su vida útil</h2>
+                    <p>Revisión periódica de escobillas, limpieza de polvo en percutores y cuidados de baterías de litio
+                        para rendir al 100% en terreno.</p>
+                    <a class="boton" href="detalle-blog-2.html">VER CASO / LEER ARTÍCULO</a>
+                </div>
+                <div class="imagen-blog">
+                    <img src="assets/img/taladro.jpg" alt="Herramientas eléctricas en taller">
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="pie-sitio">
+        <div class="info-footer">
+            <p><strong>Ferretería Los Maestros</strong></p>
+            <address>
+                📍 Dirección: Av. Principal 1234, La Serena, Región de Coquimbo<br>
+                📞 Teléfono: +56 51 234 5678<br>
+                ✉️ Contacto: <a href="mailto:contacto@losmaestros.cl">contacto@losmaestros.cl</a>
+            </address>
+        </div>
+        <div class="creditos">
+            <p><small>Proyecto académico · DSY1104 Desarrollo FullStack II · Duoc UC</small></p>
+        </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
