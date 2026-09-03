@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Iniciar sesión en Ferretería Los Maestros.">
+    <title>Iniciar Sesión | Ferretería Los Maestros</title>
+    <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+
+<body>
+    <a class="salto-contenido" href="#contenido-principal">Ir al contenido</a>
+
+    <!-- Header -->
+    <header class="cabecera-sitio">
+        <div class="barra-superior">
+            <a class="marca" href="index.html">🔨 Ferretería Los Maestros</a>
+            <nav aria-label="Navegación principal">
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="acciones-usuario">
+                <a class="enlace-carrito" href="carrito.html">🛒 Carrito (<span id="cant-carrito">0</span>)</a>
+                <div class="enlaces-auth">
+                    <a href="login.html" aria-current="page">Iniciar sesión</a> |
+                    <a href="registro.html">Registrar usuario</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main id="contenido-principal" class="contenedor-formulario">
+        <section class="tarjeta-formulario tarjeta-login" aria-labelledby="titulo-login">
+            <div class="encabezado-form">
+                <div class="logo-login">🔨</div>
+                <h2>Ferretería Los Maestros</h2>
+                <h1 id="titulo-login">Inicio de sesión</h1>
+            </div>
+
+            <form id="form-login" class="formulario" novalidate>
+                <!-- Correo -->
+                <div class="campo-grupo">
+                    <label for="login-correo">Correo electrónico <span class="obligatorio">*</span></label>
+                    <input type="email" id="login-correo" name="correo" maxlength="100"
+                        placeholder="usuario@duoc.cl o usuario@gmail.com" required>
+                    <small class="mensaje-error" id="error-login-correo"></small>
+                </div>
+
+                <!-- Contraseña -->
+                <div class="campo-grupo">
+                    <label for="login-password">Contraseña <span class="obligatorio">*</span></label>
+                    <input type="password" id="login-password" name="password" minlength="4" maxlength="10"
+                        placeholder="Entre 4 y 10 caracteres" required>
+                    <small class="mensaje-error" id="error-login-password"></small>
+                </div>
+
+                <button type="submit" class="boton-enviar">INICIAR SESIÓN</button>
+
+                <p class="pie-formulario">¿Aún no tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="pie-sitio">
+        <div class="info-footer">
+            <p><strong>Ferretería Los Maestros</strong></p>
+            <address>
+                📍 Dirección: Av. Principal 1234, La Serena, Región de Coquimbo<br>
+                📞 Teléfono: +56 51 234 5678<br>
+                ✉️ Contacto: <a href="mailto:contacto@losmaestros.cl">contacto@losmaestros.cl</a>
+            </address>
+        </div>
+        <div class="creditos">
+            <p><small>Proyecto académico · DSY1104 Desarrollo FullStack II · Duoc UC</small></p>
+        </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/validaciones.js"></script>
+</body>
+
+</html>

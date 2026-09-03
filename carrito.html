@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Carrito de compras de Ferretería Los Maestros. Revisa tus productos y procesa tu pedido.">
+    <title>Mi Carrito | Ferretería Los Maestros</title>
+    <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+
+<body>
+    <!-- Enlace accesible -->
+    <a class="salto-contenido" href="#contenido-principal">Ir al contenido</a>
+
+    <!-- Cabecera principal -->
+    <header class="cabecera-sitio">
+        <div class="barra-superior">
+            <a class="marca" href="index.html">🔨 Ferretería Los Maestros</a>
+            <nav aria-label="Navegación principal">
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="acciones-usuario">
+                <a class="enlace-carrito" href="carrito.html" aria-current="page">🛒 Carrito (<span
+                        id="cant-carrito">0</span>)</a>
+                <div class="enlaces-auth">
+                    <a href="login.html">Iniciar sesión</a> |
+                    <a href="registro.html">Registrar usuario</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main id="contenido-principal" class="contenedor-carrito">
+        <h1>Mi carrito de compras</h1>
+
+        <div class="seccion-carrito-grid">
+            <!-- Lista de productos cargados dinámicamente o por maqueta -->
+            <section class="lista-items-carrito" aria-labelledby="titulo-items">
+                <h2 id="titulo-items" class="oculto-visual">Productos seleccionados</h2>
+
+                <div id="contenedor-items-carrito">
+                    <!-- Item 1 -->
+                    <article class="item-carrito">
+                        <img src="assets/img/taladro.jpg" alt="Taladro Percutor Inalámbrico 20V">
+                        <div class="detalle-item">
+                            <h3>Taladro Percutor 20V</h3>
+                            <p class="descripcion-corta">Herramienta inalámbrica de alta potencia con 2 baterías.</p>
+                            <p class="precio-unitario">$59.990</p>
+                        </div>
+                        <div class="controles-cantidad">
+                            <button type="button" class="btn-cantidad" aria-label="Disminuir cantidad">-</button>
+                            <input type="number" value="1" min="1" readonly class="input-cantidad">
+                            <button type="button" class="btn-cantidad" aria-label="Aumentar cantidad">+</button>
+                        </div>
+                        <p class="subtotal-item"><strong>$59.990</strong></p>
+                    </article>
+
+                    <!-- Item 2 -->
+                    <article class="item-carrito">
+                        <img src="assets/img/cemento.jpg" alt="Saco Cemento Especial 25kg">
+                        <div class="detalle-item">
+                            <h3>Cemento Especial 25 kg</h3>
+                            <p class="descripcion-corta">Cemento de alta resistencia para estructuras y pegado.</p>
+                            <p class="precio-unitario">$4.890</p>
+                        </div>
+                        <div class="controles-cantidad">
+                            <button type="button" class="btn-cantidad" aria-label="Disminuir cantidad">-</button>
+                            <input type="number" value="2" min="1" readonly class="input-cantidad">
+                            <button type="button" class="btn-cantidad" aria-label="Aumentar cantidad">+</button>
+                        </div>
+                        <p class="subtotal-item"><strong>$9.780</strong></p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- botón pagar -->
+            <aside class="resumen-pago" aria-labelledby="titulo-resumen">
+                <h2 id="titulo-resumen">Resumen del Pedido</h2>
+
+                <div class="fila-resumen total-fila">
+                    <span>TOTAL:</span>
+                    <span id="monto-total"><strong>$69.770</strong></span>
+                </div>
+
+                <!-- Formulario Cupón de Descuento -->
+                <form class="form-cupon" onsubmit="event.preventDefault();">
+                    <label for="cupon">Ingrese cupón de descuento:</label>
+                    <div class="input-cupon-grupo">
+                        <input type="text" id="cupon" name="cupon" placeholder="Ej: MAESTRO10">
+                        <button type="button" class="boton-secundario">APLICAR</button>
+                    </div>
+                </form>
+
+                <!-- Botón de Confirmación -->
+                <button type="button" class="boton-pagar">PAGAR</button>
+                <a class="enlace-seguir-comprando" href="productos.html">← Seguir comprando</a>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="pie-sitio">
+        <div class="info-footer">
+            <p><strong>Ferretería Los Maestros</strong></p>
+            <address>
+                📍 Dirección: Av. Principal 1234, La Serena, Región de Coquimbo<br>
+                📞 Teléfono: +56 51 234 5678<br>
+                ✉️ Contacto: <a href="mailto:contacto@losmaestros.cl">contacto@losmaestros.cl</a>
+            </address>
+        </div>
+        <div class="creditos">
+            <p><small>Proyecto académico · DSY1104 Desarrollo FullStack II · Duoc UC</small></p>
+        </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
