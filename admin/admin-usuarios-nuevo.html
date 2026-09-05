@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Formulario para registrar un usuario administrativo.">
+  <title>Nuevo Usuario | Admin</title>
+  <link rel="stylesheet" href="../assets/css/estilos.css">
+</head>
+<body class="layout-admin">
+  <a class="salto-contenido" href="#contenido-admin">Ir al contenido</a>
+
+  <aside class="sidebar-admin" aria-label="Navegación del administrador">
+    <div class="marca-admin">
+      <h2>🔨 Admin Maestros</h2>
+    </div>
+    <nav>
+      <ul class="menu-admin">
+        <li><a href="home.html">📊 Dashboard</a></li>
+        <li><a href="productos-lista.html">📦 Inventario / Productos</a></li>
+        <li><a href="usuarios-lista.html" class="activo">👥 Gestión de Usuarios</a></li>
+        <li><a href="../index.html" target="_blank">🌐 Ver Tienda Pública</a></li>
+        <li><a href="../login.html">🚪 Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main id="contenido-admin" class="contenido-panel">
+    <header class="barra-superior-admin">
+      <h1>Crear Usuario del Sistema</h1>
+      <a class="boton-secundario" href="usuarios-lista.html">← Volver al listado</a>
+    </header>
+
+    <section class="formulario-admin-card">
+      <form id="form-admin-nuevo-usuario" class="formulario" novalidate>
+        <div class="fila-dos-campos">
+          <div class="campo-grupo">
+            <label for="admin-user-run">RUN (Sin puntos ni guión) <span class="obligatorio">*</span></label>
+            <input type="text" id="admin-user-run" name="run" minlength="7" maxlength="9" placeholder="Ej: 19011022K" required>
+            <small class="mensaje-error" id="error-admin-run"></small>
+          </div>
+          <div class="campo-grupo">
+            <label for="admin-user-rol">Rol asignado <span class="obligatorio">*</span></label>
+            <select id="admin-user-rol" name="rol" required>
+              <option value="">- Seleccione rol -</option>
+              <option value="Administrador">Administrador</option>
+              <option value="Vendedor">Vendedor</option>
+              <option value="Cliente">Cliente</option>
+            </select>
+            <small class="mensaje-error" id="error-admin-rol"></small>
+          </div>
+        </div>
+
+        <div class="fila-dos-campos">
+          <div class="campo-grupo">
+            <label for="admin-user-nombre">Nombre <span class="obligatorio">*</span></label>
+            <input type="text" id="admin-user-nombre" name="nombre" maxlength="50" required>
+            <small class="mensaje-error" id="error-admin-nombre"></small>
+          </div>
+          <div class="campo-grupo">
+            <label for="admin-user-apellidos">Apellidos <span class="obligatorio">*</span></label>
+            <input type="text" id="admin-user-apellidos" name="apellidos" maxlength="100" required>
+            <small class="mensaje-error" id="error-admin-apellidos"></small>
+          </div>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="admin-user-correo">Correo electrónico <span class="obligatorio">*</span></label>
+          <input type="email" id="admin-user-correo" name="correo" maxlength="100" placeholder="usuario@duoc.cl o usuario@gmail.com" required>
+          <small class="sugerencia">Dominios autorizados: @duoc.cl, @profesor.duoc.cl, @gmail.com</small>
+          <small class="mensaje-error" id="error-admin-correo"></small>
+        </div>
+
+        <div class="fila-dos-campos">
+          <div class="campo-grupo">
+            <label for="admin-user-pass">Contraseña provisoria <span class="obligatorio">*</span></label>
+            <input type="password" id="admin-user-pass" name="password" minlength="4" maxlength="10" required>
+            <small class="sugerencia">Debe contener entre 4 y 10 caracteres</small>
+            <small class="mensaje-error" id="error-admin-pass"></small>
+          </div>
+          <div class="campo-grupo">
+            <label for="admin-user-direccion">Dirección <span class="obligatorio">*</span></label>
+            <input type="text" id="admin-user-direccion" name="direccion" maxlength="300" placeholder="Calle, número, depto" required>
+            <small class="mensaje-error" id="error-admin-direccion"></small>
+          </div>
+        </div>
+
+        <button type="submit" class="boton-enviar">CREAR USUARIO</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

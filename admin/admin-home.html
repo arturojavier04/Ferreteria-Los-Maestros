@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Panel de administración de Ferretería Los Maestros.">
+  <title>Admin Dashboard | Ferretería Los Maestros</title>
+  <link rel="stylesheet" href="../assets/css/estilos.css">
+</head>
+<body class="layout-admin">
+  <a class="salto-contenido" href="#contenido-admin">Ir al contenido</a>
+
+  <!-- Sidebar Lateral -->
+  <aside class="sidebar-admin" aria-label="Navegación del administrador">
+    <div class="marca-admin">
+      <h2>🔨 Admin Maestros</h2>
+    </div>
+    <nav>
+      <ul class="menu-admin">
+        <li><a href="home.html" aria-current="page" class="activo">📊 Dashboard</a></li>
+        <li><a href="productos-lista.html">📦 Inventario / Productos</a></li>
+        <li><a href="usuarios-lista.html">👥 Gestión de Usuarios</a></li>
+        <li><a href="../index.html" target="_blank">🌐 Ver Tienda Pública</a></li>
+        <li><a href="../login.html">🚪 Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Área Central de Métricas -->
+  <main id="contenido-admin" class="contenido-panel">
+    <header class="barra-superior-admin">
+      <h1>Panel de Administración</h1>
+      <span class="badge-rol">Rol: Administrador General</span>
+    </header>
+
+    <section class="resumen-estadisticas">
+      <div class="tarjeta-kpi">
+        <h3>Total Productos en Catálogo</h3>
+        <p class="numero-kpi">824</p>
+        <a href="productos-lista.html">Ver catálogo completo →</a>
+      </div>
+      <div class="tarjeta-kpi alerta-kpi">
+        <h3>Productos en Stock Crítico</h3>
+        <p class="numero-kpi">12</p>
+        <a href="productos-lista.html">Revisar alertas →</a>
+      </div>
+      <div class="tarjeta-kpi">
+        <h3>Usuarios Registrados</h3>
+        <p class="numero-kpi">48</p>
+        <a href="usuarios-lista.html">Ver listado de cuentas →</a>
+      </div>
+    </section>
+
+    <section class="accesos-rapidos-admin">
+      <h2>Acciones Rápidas</h2>
+      <div class="botones-rapidos">
+        <a class="boton-admin" href="producto-nuevo.html">+ Registrar Nuevo Producto</a>
+        <a class="boton-admin" href="usuario-nuevo.html">+ Crear Nuevo Usuario</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
