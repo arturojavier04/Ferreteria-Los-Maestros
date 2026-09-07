@@ -1,42 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap');
 
-/* ---------------------------------------------------------------------
-   1. VARIABLES GLOBALES (design tokens)
-   --------------------------------------------------------------------- */
 :root {
-    /* Colores */
-    --color-primario: #1E3A4C;      /* Azul acero — header, footer */
-    --color-primario-osc: #142835;  /* Azul acero oscuro — hover */
-    --color-acento: #F2A93B;        /* Amarillo seguridad — CTA */
-    --color-acento-osc: #D9911F;    /* Amarillo oscuro — hover CTA */
-    --color-fondo: #F5F4F0;         /* Fondo general */
-    --color-superficie: #FFFFFF;    /* Tarjetas, formularios */
-    --color-texto: #22262A;         /* Texto principal */
-    --color-texto-suave: #5B6470;   /* Texto secundario */
-    --color-borde: #DDDBD3;         /* Bordes sutiles */
+
+--color-primario: #1E3A4C;      
+    --color-primario-osc: #142835;  
+    --color-acento: #F2A93B;     
+    --color-acento-osc: #D9911F;   
+    --color-fondo: #F5F4F0;     
+    --color-superficie: #FFFFFF;   
+    --color-texto: #22262A;        
+    --color-texto-suave: #5B6470;  
+    --color-borde: #DDDBD3;        
     --color-error: #D64545;
     --color-exito: #2E7D4F;
-
-    /* Tipografía */
     --fuente-titulos: "Barlow Condensed", sans-serif;
     --fuente-texto: "Inter", sans-serif;
-
-    /* Espaciado */
     --espacio-xs: 0.5rem;
     --espacio-sm: 1rem;
     --espacio-md: 1.5rem;
     --espacio-lg: 2.5rem;
     --espacio-xl: 4rem;
-
-    /* Layout */
     --ancho-maximo: 1180px;
     --radio-borde: 6px;
     --sombra-tarjeta: 0 2px 8px rgba(20, 40, 53, 0.08);
 }
 
-/* ---------------------------------------------------------------------
-   2. RESET Y BASE
-   --------------------------------------------------------------------- */
 *,
 *::before,
 *::after {
@@ -357,9 +345,6 @@ main {
     color: var(--color-primario-osc);
 }
 
-/* ---------------------------------------------------------------------
-   6. TARJETAS DE PRODUCTO / CONTENIDO GENÉRICAS
-   --------------------------------------------------------------------- */
 .grilla-tarjetas,
 .grilla-tarjetas-catalogo {
     display: grid;
@@ -912,6 +897,31 @@ main {
     font-family: var(--fuente-titulos);
     font-size: 1.15rem;
     color: var(--color-primario);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+}
+
+.btn-quitar-item {
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-error);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.btn-quitar-item:hover {
+    text-decoration: underline;
+}
+
+.carrito-vacio {
+    text-align: center;
+    padding: var(--espacio-lg) 0;
+    color: var(--color-texto-suave);
 }
 
 .resumen-pago {
