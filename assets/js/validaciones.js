@@ -1,7 +1,6 @@
 (function () {
   'use strict';
 
-  // Dominios de correo aceptados en todo el sitio.
   const REGEX_CORREO = /^[\w.+-]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
   const REGEX_SOLO_LETRAS = /^[A-Za-zÀ-ÖØ-öø-ÿñÑ\s]+$/;
 
@@ -26,7 +25,6 @@
     return dvIngresado === dvEsperado;
   }
 
-  /** Marca un campo como inválido y despliega el mensaje correspondiente. */
   function mostrarError(input, spanError, mensaje) {
     input.classList.add('campo-invalido');
     input.classList.remove('campo-valido');
@@ -104,8 +102,6 @@
     campos.forEach(({ input, error, reglas }) => {
       if (!input) return;
       input.addEventListener('blur', () => validarCampo(input, error, reglas));
-      // Una vez que el usuario cometió un error, revalidar mientras escribe
-      // para que el mensaje desaparezca apenas corrija el dato.
       input.addEventListener('input', () => {
         if (input.classList.contains('campo-invalido')) {
           validarCampo(input, error, reglas);
@@ -220,19 +216,19 @@
           input: confirmPassword,
           error: document.getElementById('error-reg-confirm'),
           reglas: [
-            requerido('Repite tu contraseña.'),
+            requerido('Por favor repite tu contraseña.'),
             coincideCon(() => password.value.trim(), 'Las contraseñas no coinciden.'),
           ],
         },
         {
           input: region,
           error: null,
-          reglas: [seleccionObligatoria('Selecciona tu región.')],
+          reglas: [seleccionObligatoria('Por favor selecciona tu región.')],
         },
         {
           input: comuna,
           error: null,
-          reglas: [seleccionObligatoria('Selecciona tu comuna.')],
+          reglas: [seleccionObligatoria('Por favor selecciona tu comuna.')],
         },
         {
           input: direccion,
@@ -244,8 +240,6 @@
         },
       ],
       () => {
-        // Si la contraseña cambia después de validar la confirmación,
-        // se vuelve a comprobar la coincidencia antes de aceptar el envío.
         alert('¡Registro completado con éxito! Ya puedes iniciar sesión.');
         formRegistro.reset();
         formRegistro.querySelectorAll('.campo-invalido, .campo-valido').forEach((el) => {
@@ -254,12 +248,11 @@
       }
     );
 
-    // Si el usuario corrige la contraseña original, revalidar la confirmación.
     if (password && confirmPassword) {
       password.addEventListener('input', () => {
         if (confirmPassword.value.trim().length > 0) {
           validarCampo(confirmPassword, document.getElementById('error-reg-confirm'), [
-            requerido('Repite tu contraseña.'),
+            requerido('Por favor repite tu contraseña.'),
             coincideCon(() => password.value.trim(), 'Las contraseñas no coinciden.'),
           ]);
         }
@@ -275,7 +268,6 @@
     const contadorChars = document.getElementById('chars-mensaje');
     const alertaExito = document.getElementById('alerta-exito-contacto');
 
-    // Contador de caracteres en vivo para el textarea (máximo 500).
     if (mensaje && contadorChars) {
       contadorChars.textContent = mensaje.value.length;
       mensaje.addEventListener('input', () => {
@@ -364,7 +356,7 @@
         },
       ],
       () => {
-        alert('Producto guardado correctamente. (Datos de prueba, sin backend conectado)');
+        alert('Producto fue guardado exitosamente (Datos de prueba, sin backend conectado)');
         formNuevoProducto.reset();
         formNuevoProducto.querySelectorAll('.campo-invalido, .campo-valido').forEach((el) => {
           el.classList.remove('campo-invalido', 'campo-valido');
@@ -372,7 +364,6 @@
       }
     );
 
-    // Stock crítico es opcional, pero si se completa debe ser un entero válido.
     if (stockCritico) {
       stockCritico.addEventListener('blur', () => {
         if (stockCritico.value.trim().length > 0 && !/^\d+$/.test(stockCritico.value.trim())) {
@@ -441,7 +432,7 @@
         },
       ],
       () => {
-        alert('Usuario creado correctamente. (Datos de prueba, sin backend conectado)');
+        alert('Usuario creado de manera correcta (Datos de prueba, sin backend conectado)');
         formNuevoUsuarioAdmin.reset();
         formNuevoUsuarioAdmin.querySelectorAll('.campo-invalido, .campo-valido').forEach((el) => {
           el.classList.remove('campo-invalido', 'campo-valido');
