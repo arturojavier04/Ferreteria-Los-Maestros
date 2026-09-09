@@ -295,7 +295,10 @@ main {
     margin-right: -50vw;
 
     /* Imagen de fondo con degradado oscuro encima para que el texto blanco
-       siempre sea legible, sin importar qué tan clara sea la foto. */
+       siempre sea legible, sin importar qué tan clara sea la foto.
+       Si la foto se ve mal recortada, ajusta el segundo valor de la línea
+       de abajo (center / cover): prueba "right center", "center top" o
+       un porcentaje como "70% 30%" hasta que se vea bien el producto. */
     background:
         linear-gradient(90deg, rgba(20, 40, 53, 0.93) 0%, rgba(20, 40, 53, 0.72) 55%, rgba(20, 40, 53, 0.25) 100%),
         url("../img/hero-productos.jpg") center / cover no-repeat;
@@ -304,7 +307,9 @@ main {
     color: var(--color-superficie);
     min-height: 420px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 
     padding-block: var(--espacio-xl);
     /* Alinea el texto con el borde del contenedor normal en pantallas anchas,
