@@ -1,49 +1,28 @@
-/* =====================================================================
-   FERRETERÍA LOS MAESTROS — estilos.css
-   DSY1104 Desarrollo FullStack II · Duoc UC
-   Sistema de diseño: azul acero + amarillo seguridad (paleta de
-   herramientas eléctricas), tipografía condensada para títulos.
-   ===================================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap');
-
-/* ---------------------------------------------------------------------
-   1. VARIABLES GLOBALES (design tokens)
-   --------------------------------------------------------------------- */
 :root {
-    /* Colores */
-    --color-primario: #1E3A4C;      /* Azul acero — header, footer */
-    --color-primario-osc: #142835;  /* Azul acero oscuro — hover */
-    --color-acento: #F2A93B;        /* Amarillo seguridad — CTA */
-    --color-acento-osc: #D9911F;    /* Amarillo oscuro — hover CTA */
-    --color-fondo: #F5F4F0;         /* Fondo general */
-    --color-superficie: #FFFFFF;    /* Tarjetas, formularios */
-    --color-texto: #22262A;         /* Texto principal */
-    --color-texto-suave: #5B6470;   /* Texto secundario */
-    --color-borde: #DDDBD3;         /* Bordes sutiles */
+
+    --color-primario: #1E3A4C;
+    --color-primario-osc: #142835;
+    --color-acento: #F2A93B;
+    --color-acento-osc: #D9911F;
+    --color-fondo: #F5F4F0;
+    --color-superficie: #FFFFFF;
+    --color-texto: #22262A;
+    --color-texto-suave: #5B6470;
+    --color-borde: #DDDBD3;
     --color-error: #D64545;
     --color-exito: #2E7D4F;
-
-    /* Tipografía */
     --fuente-titulos: "Barlow Condensed", sans-serif;
     --fuente-texto: "Inter", sans-serif;
-
-    /* Espaciado */
     --espacio-xs: 0.5rem;
     --espacio-sm: 1rem;
     --espacio-md: 1.5rem;
     --espacio-lg: 2.5rem;
     --espacio-xl: 4rem;
-
-    /* Layout */
     --ancho-maximo: 1180px;
     --radio-borde: 6px;
     --sombra-tarjeta: 0 2px 8px rgba(20, 40, 53, 0.08);
 }
 
-/* ---------------------------------------------------------------------
-   2. RESET Y BASE
-   --------------------------------------------------------------------- */
 *,
 *::before,
 *::after {
@@ -78,7 +57,9 @@ ul {
     padding: 0;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: var(--fuente-titulos);
     font-weight: 700;
     line-height: 1.15;
@@ -86,11 +67,22 @@ h1, h2, h3 {
     color: var(--color-primario);
 }
 
-h1 { font-size: clamp(2rem, 4vw, 2.75rem); }
-h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
-h3 { font-size: 1.25rem; }
+h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+}
 
-p { margin: 0 0 var(--espacio-sm); max-width: 68ch; }
+h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+p {
+    margin: 0 0 var(--espacio-sm);
+    max-width: 68ch;
+}
 
 button {
     font-family: inherit;
@@ -302,7 +294,8 @@ main {
     background:
         linear-gradient(90deg, rgba(20, 40, 53, 0.93) 0%, rgba(20, 40, 53, 0.72) 55%, rgba(20, 40, 53, 0.25) 100%),
         url("../img/hero-productos.jpg") center / cover no-repeat;
-    background-color: var(--color-primario); /* respaldo si la imagen no carga */
+    background-color: var(--color-primario);
+    /* respaldo si la imagen no carga */
 
     color: var(--color-superficie);
     min-height: 420px;
@@ -318,7 +311,7 @@ main {
 }
 
 /* Limita el ancho del texto sin necesitar un div extra en el HTML */
-.presentacion > * {
+.presentacion>* {
     max-width: 560px;
 }
 
@@ -369,9 +362,6 @@ main {
     color: var(--color-primario-osc);
 }
 
-/* ---------------------------------------------------------------------
-   6. TARJETAS DE PRODUCTO / CONTENIDO GENÉRICAS
-   --------------------------------------------------------------------- */
 .grilla-tarjetas,
 .grilla-tarjetas-catalogo {
     display: grid;
@@ -801,6 +791,25 @@ main {
     min-height: 1em;
 }
 
+/* Estados de validación aplicados por assets/js/validaciones.js */
+.campo-grupo input.campo-invalido,
+.campo-grupo select.campo-invalido,
+.campo-grupo textarea.campo-invalido {
+    border-color: var(--color-error);
+}
+
+.campo-grupo input.campo-invalido:focus,
+.campo-grupo select.campo-invalido:focus,
+.campo-grupo textarea.campo-invalido:focus {
+    outline-color: var(--color-error);
+}
+
+.campo-grupo input.campo-valido,
+.campo-grupo select.campo-valido,
+.campo-grupo textarea.campo-valido {
+    border-color: var(--color-exito);
+}
+
 .alerta-exito {
     background-color: #E4F3EA;
     color: var(--color-exito);
@@ -905,6 +914,31 @@ main {
     font-family: var(--fuente-titulos);
     font-size: 1.15rem;
     color: var(--color-primario);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+}
+
+.btn-quitar-item {
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-error);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.btn-quitar-item:hover {
+    text-decoration: underline;
+}
+
+.carrito-vacio {
+    text-align: center;
+    padding: var(--espacio-lg) 0;
+    color: var(--color-texto-suave);
 }
 
 .resumen-pago {
@@ -1053,10 +1087,22 @@ main {
             "subtotal subtotal";
     }
 
-    .item-carrito img { grid-area: img; }
-    .item-carrito .detalle-item { grid-area: detalle; }
-    .item-carrito .controles-cantidad { grid-area: cant; }
-    .item-carrito .subtotal-item { grid-area: subtotal; text-align: right; }
+    .item-carrito img {
+        grid-area: img;
+    }
+
+    .item-carrito .detalle-item {
+        grid-area: detalle;
+    }
+
+    .item-carrito .controles-cantidad {
+        grid-area: cant;
+    }
+
+    .item-carrito .subtotal-item {
+        grid-area: subtotal;
+        text-align: right;
+    }
 
     main {
         padding: var(--espacio-md);
@@ -1071,6 +1117,7 @@ main {
 }
 
 @media (max-width: 500px) {
+
     .grilla-tarjetas,
     .grilla-tarjetas-catalogo {
         grid-template-columns: 1fr;
@@ -1080,3 +1127,326 @@ main {
         flex-direction: column;
     }
 }
+<<<<<<< HEAD
+=======
+
+/* =====================================================================
+   PANEL DE ADMINISTRACIÓN (LAYOUT Y SIDEBAR)
+   ===================================================================== */
+body.layout-admin {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+    background-color: var(--color-fondo, #F4F6F9);
+    margin: 0;
+}
+
+.sidebar-admin {
+    background-color: var(--color-primario-osc, #07253A);
+    color: #FFFFFF;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.marca-admin h2 {
+    color: #FFFFFF;
+    font-size: 1.35rem;
+    margin: 0;
+}
+
+.menu-admin {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-admin a {
+    display: block;
+    color: #D9E2E8;
+    padding: 0.7rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.menu-admin a:hover,
+.menu-admin a.activo,
+.menu-admin a[aria-current="page"] {
+    background-color: var(--color-primario, #0B3C5D);
+    color: var(--color-acento, #D9B310);
+    font-weight: 700;
+}
+
+.contenido-panel {
+    padding: 2rem 1.5rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.barra-superior-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--color-borde, #CFD8DC);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.badge-rol {
+    background-color: var(--color-acento, #D9B310);
+    color: var(--color-primario-osc, #07253A);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+}
+
+/* =====================================================================
+   ADMIN: KPIS Y ACCESOS RÁPIDOS
+   ===================================================================== */
+.resumen-estadisticas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tarjeta-kpi {
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-borde, #CFD8DC);
+    border-radius: 6px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.tarjeta-kpi h3 {
+    font-size: 1rem;
+    color: var(--color-texto-suave, #596A7A);
+    margin: 0;
+}
+
+.numero-kpi {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--color-primario, #0B3C5D);
+    margin: 0.2rem 0;
+}
+
+.tarjeta-kpi.alerta-kpi {
+    border-left: 5px solid var(--color-error, #D32F2F);
+}
+
+.tarjeta-kpi.alerta-kpi .numero-kpi {
+    color: var(--color-error, #D32F2F);
+}
+
+.tarjeta-kpi a {
+    color: var(--color-primario, #0B3C5D);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: underline;
+    margin-top: auto;
+}
+
+.accesos-rapidos-admin {
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-borde, #CFD8DC);
+    border-radius: 6px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.botones-rapidos {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+.boton-admin {
+    display: inline-block;
+    background-color: var(--color-acento, #D9B310);
+    color: var(--color-primario-osc, #07253A);
+    font-weight: 600;
+    padding: 0.65rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+}
+
+.boton-admin:hover {
+    opacity: 0.9;
+}
+
+/* =====================================================================
+   ADMIN: TABLAS DE INVENTARIO Y USUARIOS
+   ===================================================================== */
+.tabla-contenedor,
+.contenedor-tabla {
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-borde, #CFD8DC);
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+.tabla-admin {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.92rem;
+}
+
+.tabla-admin th,
+.tabla-admin td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--color-borde, #CFD8DC);
+    vertical-align: middle;
+}
+
+.tabla-admin th {
+    background-color: #EAECEF;
+    color: var(--color-primario-osc, #07253A);
+    font-weight: 700;
+}
+
+.tabla-admin tr:hover {
+    background-color: #F8F9FA;
+}
+
+.fila-alerta {
+    background-color: #FFF8E1;
+}
+
+.tabla-admin td:last-child {
+    display: flex;
+    gap: 0.45rem;
+    align-items: center;
+}
+
+.btn-accion-editar,
+.btn-accion-eliminar {
+    display: inline-block;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+}
+
+.btn-accion-editar {
+    background-color: var(--color-primario, #0B3C5D);
+    color: #FFFFFF !important;
+}
+
+.btn-accion-eliminar {
+    background-color: var(--color-error, #D32F2F);
+    color: #FFFFFF !important;
+}
+
+.btn-accion-editar:hover,
+.btn-accion-eliminar:hover {
+    opacity: 0.85;
+}
+
+/* Ajuste responsive para la vista de administración */
+@media (max-width: 850px) {
+    body.layout-admin {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+.menu-lista {
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-lista li {
+    list-style: none;
+}
+
+.menu-lista a {
+    color: #D9E2E8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+
+
+/* MENU HAMBURGUESA */
+
+.boton-menu {
+    display: none;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* MODO MOVIL */
+@media (max-width: 768px) {
+
+    .boton-menu {
+        display: block;
+    }
+
+    #menu-principal {
+        display: none;
+        width: 100%;
+    }
+
+    #menu-principal.menu-abierto {
+        display: block;
+    }
+
+    .menu-lista {
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-top: 1rem;
+    }
+
+    .acciones-usuario {
+        margin-top: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ESCRITORIO */
+@media (min-width: 769px) {
+
+    #menu-principal {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        flex: 1;
+    }
+
+    .boton-menu {
+        display: none;
+    }
+}
+>>>>>>> 9854b380e26a101c3f3a009f2e2a47a12903f7fc

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <title>Nuevo Producto | Admin</title>
   <link rel="stylesheet" href="../assets/css/estilos.css">
 </head>
+
 <body class="layout-admin">
   <a class="salto-contenido" href="#contenido-admin">Ir al contenido</a>
 
@@ -35,25 +37,29 @@
       <form id="form-nuevo-producto" class="formulario" novalidate>
         <div class="campo-grupo">
           <label for="prod-codigo">Código de Producto <span class="obligatorio">*</span></label>
-          <input type="text" id="prod-codigo" name="codigo" minlength="3" placeholder="Mínimo 3 caracteres (ej: HERR-101)" required>
+          <input type="text" id="prod-codigo" name="codigo" minlength="3"
+            placeholder="Mínimo 3 caracteres (ej: HERR-101)" required>
           <small class="mensaje-error" id="error-prod-codigo"></small>
         </div>
 
         <div class="campo-grupo">
           <label for="prod-nombre">Nombre del Producto <span class="obligatorio">*</span></label>
-          <input type="text" id="prod-nombre" name="nombre" maxlength="100" placeholder="Máximo 100 caracteres" required>
+          <input type="text" id="prod-nombre" name="nombre" maxlength="100" placeholder="Máximo 100 caracteres"
+            required>
           <small class="mensaje-error" id="error-prod-nombre"></small>
         </div>
 
         <div class="campo-grupo">
           <label for="prod-descripcion">Descripción (opcional)</label>
-          <textarea id="prod-descripcion" name="descripcion" rows="3" maxlength="500" placeholder="Máximo 500 caracteres"></textarea>
+          <textarea id="prod-descripcion" name="descripcion" rows="3" maxlength="500"
+            placeholder="Máximo 500 caracteres"></textarea>
         </div>
 
         <div class="fila-dos-campos">
           <div class="campo-grupo">
             <label for="prod-precio">Precio ($ CLP) <span class="obligatorio">*</span></label>
-            <input type="number" id="prod-precio" name="precio" min="0" step="1" placeholder="Mayor o igual a 0" required>
+            <input type="number" id="prod-precio" name="precio" min="0" step="1" placeholder="Mayor o igual a 0"
+              required>
             <small class="mensaje-error" id="error-prod-precio"></small>
           </div>
           <div class="campo-grupo">
@@ -73,12 +79,14 @@
         <div class="fila-dos-campos">
           <div class="campo-grupo">
             <label for="prod-stock">Stock Inicial <span class="obligatorio">*</span></label>
-            <input type="number" id="prod-stock" name="stock" min="0" step="1" placeholder="Número entero mayor o igual a 0" required>
+            <input type="number" id="prod-stock" name="stock" min="0" step="1"
+              placeholder="Número entero mayor o igual a 0" required>
             <small class="mensaje-error" id="error-prod-stock"></small>
           </div>
           <div class="campo-grupo">
             <label for="prod-stock-critico">Stock Crítico (opcional)</label>
-            <input type="number" id="prod-stock-critico" name="stockCritico" min="0" step="1" placeholder="Alerta mínima de reposición">
+            <input type="number" id="prod-stock-critico" name="stockCritico" min="0" step="1"
+              placeholder="Alerta mínima de reposición">
           </div>
         </div>
 
@@ -91,5 +99,10 @@
       </form>
     </section>
   </main>
+  <script src="../assets/js/validaciones.js"></script>
+  <script src="..assets/js/menu.js"></script>
+  <script src="..assets/js/app.js"></script>
+
 </body>
+
 </html>
