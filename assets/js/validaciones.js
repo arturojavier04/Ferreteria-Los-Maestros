@@ -4,6 +4,31 @@
   const REGEX_CORREO = /^[\w.+-]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
   const REGEX_SOLO_LETRAS = /^[A-Za-zÀ-ÖØ-öø-ÿñÑ\s]+$/;
 
+  // Mapa de comunas según región seleccionada (FALTABA ESTO)
+  const COMUNAS_POR_REGION = {
+    coquimbo: [
+      { valor: 'laserena', texto: 'La Serena' },
+      { valor: 'coquimbo', texto: 'Coquimbo' },
+      { valor: 'ovalle', texto: 'Ovalle' },
+      { valor: 'illapel', texto: 'Illapel' },
+      { valor: 'vicuna', texto: 'Vicuña' }
+    ],
+    metropolitana: [
+      { valor: 'santiago', texto: 'Santiago Centro' },
+      { valor: 'providencia', texto: 'Providencia' },
+      { valor: 'lascondes', texto: 'Las Condes' },
+      { valor: 'maipu', texto: 'Maipú' },
+      { valor: 'puentealto', texto: 'Puente Alto' }
+    ],
+    valparaiso: [
+      { valor: 'valparaiso', texto: 'Valparaíso' },
+      { valor: 'vinadelmar', texto: 'Viña del Mar' },
+      { valor: 'quilpue', texto: 'Quilpué' },
+      { valor: 'villaalemana', texto: 'Villa Alemana' },
+      { valor: 'quillota', texto: 'Quillota' }
+    ]
+  };
+
   function validarRut(valor) {
     const rut = valor.replace(/[^0-9kK]/g, '').toUpperCase();
     if (rut.length < 7 || rut.length > 9) return false;
@@ -133,6 +158,30 @@
     });
   }
 
+  // --- LÓGICA DINÁMICA DE REGIONES Y COMUNAS (FALTABA ESTO) ---
+  const selectRegion = document.getElementById('select-region');
+  const selectComuna = document.getElementById('select-comuna');
+
+  if (selectRegion && selectComuna) {
+    selectRegion.addEventListener('change', () => {
+      const region = selectRegion.value;
+      selectComuna.innerHTML = '<option value="">- Seleccione la comuna -</option>';
+
+      if (region && COMUNAS_POR_REGION[region]) {
+        selectComuna.disabled = false;
+        COMUNAS_POR_REGION[region].forEach((c) => {
+          const opcion = document.createElement('option');
+          opcion.value = c.valor;
+          opcion.textContent = c.texto;
+          selectComuna.appendChild(opcion);
+        });
+      } else {
+        selectComuna.disabled = true;
+      }
+    });
+  }
+
+  // --- FORMULARIO DE LOGIN ---
   const formLogin = document.getElementById('form-login');
   if (formLogin) {
     const correo = document.getElementById('login-correo');
@@ -156,15 +205,19 @@
         },
       ],
       () => {
-        alert('Inicio de sesión validado correctamente. (Datos de prueba, sin backend conectado)');
-        formLogin.reset();
-        formLogin.querySelectorAll('.campo-invalido, .campo-valido').forEach((el) => {
-          el.classList.remove('campo-invalido', 'campo-valido');
-        });
+        const valorCorreo = (correo.value || '').trim().toLowerCase();
+        if (valorCorreo === 'admin@duoc.cl' || valorCorreo.includes('admin')) {
+          alert('Bienvenido al panel de administración');
+          window.location.href = 'admin/admin-home.html';
+        } else {
+          alert('Inicio de sesión exitoso');
+          window.location.href = 'index.html';
+        }
       }
     );
   }
 
+  // --- FORMULARIO DE REGISTRO ---
   const formRegistro = document.getElementById('form-registro');
   if (formRegistro) {
     const run = document.getElementById('reg-run');
@@ -242,6 +295,10 @@
       () => {
         alert('¡Registro completado con éxito! Ya puedes iniciar sesión.');
         formRegistro.reset();
+        if (selectComuna) {
+          selectComuna.innerHTML = '<option value="">- Seleccione primero una región -</option>';
+          selectComuna.disabled = true;
+        }
         formRegistro.querySelectorAll('.campo-invalido, .campo-valido').forEach((el) => {
           el.classList.remove('campo-invalido', 'campo-valido');
         });
@@ -260,6 +317,7 @@
     }
   }
 
+  // --- FORMULARIO DE CONTACTO ---
   const formContacto = document.getElementById('form-contacto');
   if (formContacto) {
     const nombre = document.getElementById('nombre-contacto');
@@ -298,7 +356,7 @@
         },
       ],
       () => {
-        if (alertaExito) alertaExito.classList.remove('oculto');
+        if (alertaExito) alertaExito.style.display = 'block';
         formContacto.reset();
         if (contadorChars) contadorChars.textContent = '0';
         formContacto.querySelectorAll('.campo-invalido, .campo-valido').forEach((el) => {
@@ -308,6 +366,7 @@
     );
   }
 
+  // --- FORMULARIO NUEVO PRODUCTO (ADMIN) ---
   const formNuevoProducto = document.getElementById('form-nuevo-producto');
   if (formNuevoProducto) {
     const codigo = document.getElementById('prod-codigo');
@@ -375,6 +434,7 @@
     }
   }
 
+  // --- FORMULARIO NUEVO USUARIO (ADMIN) ---
   const formNuevoUsuarioAdmin = document.getElementById('form-admin-nuevo-usuario');
   if (formNuevoUsuarioAdmin) {
     const run = document.getElementById('admin-user-run');
@@ -440,4 +500,19 @@
       }
     );
   }
+
+  // --- BOTONES DE ELIMINAR EN TABLAS ADMIN (FALTABA ESTO) ---
+  const botonesEliminar = document.querySelectorAll('.btn-accion-eliminar');
+  botonesEliminar.forEach((boton) => {
+    boton.addEventListener('click', (e) => {
+      const fila = e.target.closest('tr');
+      const nombreItem = fila.querySelector('td:nth-child(2)')?.textContent?.trim() || 'este elemento';
+
+      if (confirm(`¿Estás seguro de que deseas eliminar "${nombreItem}"?`)) {
+        fila.remove();
+        alert(`"${nombreItem}" ha sido eliminado exitosamente.`);
+      }
+    });
+  });
+
 })();

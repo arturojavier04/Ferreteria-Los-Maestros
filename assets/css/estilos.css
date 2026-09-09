@@ -1097,3 +1097,247 @@ main {
         flex-direction: column;
     }
 }
+
+/* =====================================================================
+   PANEL DE ADMINISTRACIÓN (LAYOUT Y SIDEBAR)
+   ===================================================================== */
+body.layout-admin {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+  background-color: var(--color-fondo, #F4F6F9);
+  margin: 0;
+}
+
+.sidebar-admin {
+  background-color: var(--color-primario-osc, #07253A);
+  color: #FFFFFF;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.marca-admin h2 {
+  color: #FFFFFF;
+  font-size: 1.35rem;
+  margin: 0;
+}
+
+.menu-admin {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-admin a {
+  display: block;
+  color: #D9E2E8;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.menu-admin a:hover,
+.menu-admin a.activo,
+.menu-admin a[aria-current="page"] {
+  background-color: var(--color-primario, #0B3C5D);
+  color: var(--color-acento, #D9B310);
+  font-weight: 700;
+}
+
+.contenido-panel {
+  padding: 2rem 1.5rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.barra-superior-admin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--color-borde, #CFD8DC);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.badge-rol {
+  background-color: var(--color-acento, #D9B310);
+  color: var(--color-primario-osc, #07253A);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+/* =====================================================================
+   ADMIN: KPIS Y ACCESOS RÁPIDOS
+   ===================================================================== */
+.resumen-estadisticas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tarjeta-kpi {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-borde, #CFD8DC);
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.tarjeta-kpi h3 {
+  font-size: 1rem;
+  color: var(--color-texto-suave, #596A7A);
+  margin: 0;
+}
+
+.numero-kpi {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--color-primario, #0B3C5D);
+  margin: 0.2rem 0;
+}
+
+.tarjeta-kpi.alerta-kpi {
+  border-left: 5px solid var(--color-error, #D32F2F);
+}
+
+.tarjeta-kpi.alerta-kpi .numero-kpi {
+  color: var(--color-error, #D32F2F);
+}
+
+.tarjeta-kpi a {
+  color: var(--color-primario, #0B3C5D);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: underline;
+  margin-top: auto;
+}
+
+.accesos-rapidos-admin {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-borde, #CFD8DC);
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.botones-rapidos {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.boton-admin {
+  display: inline-block;
+  background-color: var(--color-acento, #D9B310);
+  color: var(--color-primario-osc, #07253A);
+  font-weight: 600;
+  padding: 0.65rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.boton-admin:hover {
+  opacity: 0.9;
+}
+
+/* =====================================================================
+   ADMIN: TABLAS DE INVENTARIO Y USUARIOS
+   ===================================================================== */
+.tabla-contenedor,
+.contenedor-tabla {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-borde, #CFD8DC);
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.tabla-admin {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.tabla-admin th,
+.tabla-admin td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-borde, #CFD8DC);
+  vertical-align: middle;
+}
+
+.tabla-admin th {
+  background-color: #EAECEF;
+  color: var(--color-primario-osc, #07253A);
+  font-weight: 700;
+}
+
+.tabla-admin tr:hover {
+  background-color: #F8F9FA;
+}
+
+.fila-alerta {
+  background-color: #FFF8E1;
+}
+
+.tabla-admin td:last-child {
+  display: flex;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.btn-accion-editar,
+.btn-accion-eliminar {
+  display: inline-block;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.btn-accion-editar {
+  background-color: var(--color-primario, #0B3C5D);
+  color: #FFFFFF !important;
+}
+
+.btn-accion-eliminar {
+  background-color: var(--color-error, #D32F2F);
+  color: #FFFFFF !important;
+}
+
+.btn-accion-editar:hover,
+.btn-accion-eliminar:hover {
+  opacity: 0.85;
+}
+
+/* Ajuste responsive para la vista de administración */
+@media (max-width: 850px) {
+  body.layout-admin {
+    grid-template-columns: 1fr;
+  }
+}
