@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Formulario para registrar un nuevo producto en Ferretería Los Maestros.">
+  <title>Nuevo Producto | Admin</title>
+  <link rel="stylesheet" href="../assets/css/estilos.css">
+</head>
+<body class="layout-admin">
+  <a class="salto-contenido" href="#contenido-admin">Ir al contenido</a>
+
+  <aside class="sidebar-admin" aria-label="Navegación del administrador">
+    <div class="marca-admin">
+      <h2>🔨 Admin Maestros</h2>
+    </div>
+    <nav>
+      <ul class="menu-admin">
+        <li><a href="home.html">📊 Dashboard</a></li>
+        <li><a href="productos-lista.html" class="activo">📦 Inventario / Productos</a></li>
+        <li><a href="usuarios-lista.html">👥 Gestión de Usuarios</a></li>
+        <li><a href="../index.html" target="_blank">🌐 Ver Tienda Pública</a></li>
+        <li><a href="../login.html">🚪 Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main id="contenido-admin" class="contenido-panel">
+    <header class="barra-superior-admin">
+      <h1>Registrar Nuevo Producto</h1>
+      <a class="boton-secundario" href="productos-lista.html">← Volver al listado</a>
+    </header>
+
+    <section class="formulario-admin-card">
+      <form id="form-nuevo-producto" class="formulario" novalidate>
+        <div class="campo-grupo">
+          <label for="prod-codigo">Código de Producto <span class="obligatorio">*</span></label>
+          <input type="text" id="prod-codigo" name="codigo" minlength="3" placeholder="Mínimo 3 caracteres (ej: HERR-101)" required>
+          <small class="mensaje-error" id="error-prod-codigo"></small>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="prod-nombre">Nombre del Producto <span class="obligatorio">*</span></label>
+          <input type="text" id="prod-nombre" name="nombre" maxlength="100" placeholder="Máximo 100 caracteres" required>
+          <small class="mensaje-error" id="error-prod-nombre"></small>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="prod-descripcion">Descripción (opcional)</label>
+          <textarea id="prod-descripcion" name="descripcion" rows="3" maxlength="500" placeholder="Máximo 500 caracteres"></textarea>
+        </div>
+
+        <div class="fila-dos-campos">
+          <div class="campo-grupo">
+            <label for="prod-precio">Precio ($ CLP) <span class="obligatorio">*</span></label>
+            <input type="number" id="prod-precio" name="precio" min="0" step="1" placeholder="Mayor o igual a 0" required>
+            <small class="mensaje-error" id="error-prod-precio"></small>
+          </div>
+          <div class="campo-grupo">
+            <label for="prod-categoria">Categoría <span class="obligatorio">*</span></label>
+            <select id="prod-categoria" name="categoria" required>
+              <option value="">- Seleccione categoría -</option>
+              <option value="electricas">Herramientas Eléctricas</option>
+              <option value="manuales">Herramientas Manuales</option>
+              <option value="construccion">Materiales de Construcción</option>
+              <option value="gasfiteria">Gasfitería</option>
+              <option value="pinturas">Pinturas y Adhesivos</option>
+            </select>
+            <small class="mensaje-error" id="error-prod-categoria"></small>
+          </div>
+        </div>
+
+        <div class="fila-dos-campos">
+          <div class="campo-grupo">
+            <label for="prod-stock">Stock Inicial <span class="obligatorio">*</span></label>
+            <input type="number" id="prod-stock" name="stock" min="0" step="1" placeholder="Número entero mayor o igual a 0" required>
+            <small class="mensaje-error" id="error-prod-stock"></small>
+          </div>
+          <div class="campo-grupo">
+            <label for="prod-stock-critico">Stock Crítico (opcional)</label>
+            <input type="number" id="prod-stock-critico" name="stockCritico" min="0" step="1" placeholder="Alerta mínima de reposición">
+          </div>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="prod-imagen">Imagen del Producto (opcional)</label>
+          <input type="file" id="prod-imagen" name="imagen" accept="image/*">
+        </div>
+
+        <button type="submit" class="boton-enviar">GUARDAR PRODUCTO</button>
+      </form>
+    </section>
+  </main>
+<script src="../assets/js/validaciones.js"></script>
+</body>
+</html>

@@ -19,22 +19,23 @@
         <div class="barra-superior">
             <a class="marca" href="index.html">🔨 Ferretería Los Maestros</a>
 
-            <!-- Navegación principal -->
-            <nav aria-label="Navegación principal">
-                <ul class="menu">
+            <!-- 1. El botón va FUERA y ANTES del nav -->
+            <button id="boton-menu" class="boton-menu" type="button" 
+                    aria-label="Abrir o cerrar menú principal" 
+                    aria-controls="menu-principal" 
+                    aria-expanded="false">
+                <span aria-hidden="true">☰</span>
+            </button>
+
+            <!-- 2. El nav debe llevar id="menu-principal" y class="menu" -->
+            <nav id="menu-principal" class="menu" aria-label="Navegación principal">
+                <ul class="menu-lista">
                     <li><a href="index.html" aria-current="page">Inicio</a></li>
                     <li><a href="productos.html">Productos</a></li>
                     <li><a href="nosotros.html">Nosotros</a></li>
                     <li><a href="blogs.html">Blogs</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
-
-                <button id="boton-menu" class="boton-menu" type="button" 
-                    aria-label="Abrir o cerrar menú principal" 
-                    aria-controls="menu-principal" 
-                    aria-expanded="false">
-                <span aria-hidden="true">☰</span>
-            </button>
             </nav>
 
             <!-- Carrito de compras -->
@@ -128,6 +129,7 @@
 
     <!-- Archivo JavaScript  -->
     <script src="assets/js/app.js"></script>
+    <script src="assets/js/menu.js"></script>
 </body>
 
 </html>

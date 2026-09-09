@@ -16,22 +16,26 @@
     <header class="cabecera-sitio">
         <div class="barra-superior">
             <a class="marca" href="index.html">🔨 Ferretería Los Maestros</a>
-            <nav aria-label="Navegación principal">
-                <ul class="menu">
+
+            <!-- Botón Hamburguesa accesible antes del nav -->
+            <button id="boton-menu" class="boton-menu" type="button" 
+                    aria-label="Abrir o cerrar menú principal" 
+                    aria-controls="menu-principal" 
+                    aria-expanded="false">
+                <span aria-hidden="true">☰</span>
+            </button>
+
+            <!-- Menú con id="menu-principal" -->
+            <nav id="menu-principal" class="menu" aria-label="Navegación principal">
+                <ul class="menu-lista">
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="productos.html" aria-current="page">Productos</a></li>
                     <li><a href="nosotros.html">Nosotros</a></li>
                     <li><a href="blogs.html">Blogs</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
-
-                <button id="boton-menu" class="boton-menu" type="button" 
-                    aria-label="Abrir o cerrar menú principal" 
-                    aria-controls="menu-principal" 
-                    aria-expanded="false">
-                <span aria-hidden="true">☰</span>
-            </button>
             </nav>
+
             <div class="acciones-usuario">
                 <a class="enlace-carrito" href="carrito.html">🛒 Carrito (<span id="cant-carrito">0</span>)</a>
                 <div class="enlaces-auth">
@@ -53,153 +57,191 @@
             <div class="grilla-tarjetas-catalogo" id="contenedor-productos">
 
                 <!-- Producto 1 -->
-                <article class="tarjeta-producto">
-                    <a href="detalle-producto.html">
+                <article class="tarjeta-producto"
+                         data-id="1"
+                         data-nombre="Taladro Percutor Inalámbrico 20V"
+                         data-precio="59990"
+                         data-imagen="assets/img/taladro.jpg">
+                    <a href="detalle-producto.html?id=1">
                         <img src="assets/img/taladro.jpg" alt="Taladro Percutor Inalámbrico 20V">
                     </a>
                     <span class="categoria-badge">Herramientas Eléctricas</span>
-                    <h3><a href="detalle-producto.html">Taladro Percutor Inalámbrico 20V</a></h3>
+                    <h3><a href="detalle-producto.html?id=1">Taladro Percutor Inalámbrico 20V</a></h3>
                     <p class="descripcion-breve">Mandril de 13 mm, incluye 2 baterías de litio y maletín.</p>
                     <p class="precio">$59.990</p>
                     <div class="acciones-producto">
-                        <a class="boton-tarjeta" href="detalle-producto.html">Ver Detalle</a>
+                        <a class="boton-tarjeta" href="detalle-producto.html?id=1">Ver Detalle</a>
                         <button type="button" class="boton-agregar-carrito">Añadir al Carrito</button>
                     </div>
                 </article>
 
                 <!-- Producto 2 -->
-                <article class="tarjeta-producto">
-                    <a href="detalle-producto.html">
+                <article class="tarjeta-producto"
+                         data-id="2"
+                         data-nombre="Cemento Especial 25 kg"
+                         data-precio="4890"
+                         data-imagen="assets/img/cemento.jpg">
+                    <a href="detalle-producto.html?id=2">
                         <img src="assets/img/cemento.jpg" alt="Saco Cemento Especial 25kg">
                     </a>
                     <span class="categoria-badge">Construcción</span>
-                    <h3><a href="detalle-producto.html">Cemento Especial 25 kg</a></h3>
+                    <h3><a href="detalle-producto.html?id=2">Cemento Especial 25 kg</a></h3>
                     <p class="descripcion-breve">Alta resistencia inicial y fraguado óptimo para faena.</p>
                     <p class="precio">$4.890</p>
                     <div class="acciones-producto">
-                        <a class="boton-tarjeta" href="detalle-producto.html">Ver Detalle</a>
+                        <a class="boton-tarjeta" href="detalle-producto.html?id=2">Ver Detalle</a>
                         <button type="button" class="boton-agregar-carrito">Añadir al Carrito</button>
                     </div>
                 </article>
 
                 <!-- Producto 3 -->
-                <article class="tarjeta-producto">
-                    <a href="detalle-producto.html">
+                <article class="tarjeta-producto"
+                         data-id="3"
+                         data-nombre="Esmeril Angular 4 1/2 850W"
+                         data-precio="34990"
+                         data-imagen="assets/img/esmeril.jpg">
+                    <a href="detalle-producto.html?id=3">
                         <img src="assets/img/esmeril.jpg" alt="Esmeril Angular 850W">
                     </a>
                     <span class="categoria-badge">Herramientas Eléctricas</span>
-                    <h3><a href="detalle-producto.html">Esmeril Angular 4 1/2 850W</a></h3>
+                    <h3><a href="detalle-producto.html?id=3">Esmeril Angular 4 1/2 850W</a></h3>
                     <p class="descripcion-breve">Velocidad de 11.000 RPM para corte y desbaste en metal y losa.</p>
                     <p class="precio">$34.990</p>
                     <div class="acciones-producto">
-                        <a class="boton-tarjeta" href="detalle-producto.html">Ver Detalle</a>
+                        <a class="boton-tarjeta" href="detalle-producto.html?id=3">Ver Detalle</a>
                         <button type="button" class="boton-agregar-carrito">Añadir al Carrito</button>
                     </div>
                 </article>
 
                 <!-- Producto 4 -->
-                <article class="tarjeta-producto">
-                    <a href="detalle-producto.html">
+                <article class="tarjeta-producto"
+                         data-id="4"
+                         data-nombre="Set de Herramientas 45 Piezas"
+                         data-precio="24990"
+                         data-imagen="assets/img/set-herramientas.jpg">
+                    <a href="detalle-producto.html?id=4">
                         <img src="assets/img/set-herramientas.jpg" alt="Set de Herramientas Manuales 45 Piezas">
                     </a>
                     <span class="categoria-badge">Herramientas Manuales</span>
-                    <h3><a href="detalle-producto.html">Set de Herramientas 45 Piezas</a></h3>
+                    <h3><a href="detalle-producto.html?id=4">Set de Herramientas 45 Piezas</a></h3>
                     <p class="descripcion-breve">Alicates, destornilladores y llaves en estuche reforzado.</p>
                     <p class="precio">$24.990</p>
                     <div class="acciones-producto">
-                        <a class="boton-tarjeta" href="detalle-producto.html">Ver Detalle</a>
+                        <a class="boton-tarjeta" href="detalle-producto.html?id=4">Ver Detalle</a>
                         <button type="button" class="boton-agregar-carrito">Añadir al Carrito</button>
                     </div>
                 </article>
 
                 <!-- Producto 5 -->
-                <article class="tarjeta-producto">
-                    <a href="detalle-producto.html">
+                <article class="tarjeta-producto"
+                         data-id="5"
+                         data-nombre="Tubo PVC Sanitario 110mm x 3m"
+                         data-precio="8490"
+                         data-imagen="assets/img/tuberia-pvc.jpg">
+                    <a href="detalle-producto.html?id=5">
                         <img src="assets/img/tuberia-pvc.jpg" alt="Tubo PVC Sanitario 110mm x 3m">
                     </a>
                     <span class="categoria-badge">Gasfitería</span>
-                    <h3><a href="detalle-producto.html">Tubo PVC Sanitario 110mm x 3m</a></h3>
+                    <h3><a href="detalle-producto.html?id=5">Tubo PVC Sanitario 110mm x 3m</a></h3>
                     <p class="descripcion-breve">Tubería de desagüe sanitario de alta durabilidad y resistencia.</p>
                     <p class="precio">$8.490</p>
                     <div class="acciones-producto">
-                        <a class="boton-tarjeta" href="detalle-producto.html">Ver Detalle</a>
+                        <a class="boton-tarjeta" href="detalle-producto.html?id=5">Ver Detalle</a>
                         <button type="button" class="boton-agregar-carrito">Añadir al Carrito</button>
                     </div>
                 </article>
 
                 <!-- Producto 6 -->
-                <article class="tarjeta-producto">
-                    <a href="detalle-producto.html">
-                        <img src="assets/img/pintura.jpg" alt="Tineta Esmalte al Agua Blanco 5 Galones">
+                <article class="tarjeta-producto"
+                         data-id="6"
+                         data-nombre="Esmalte al Agua Blanco 5 Gal"
+                         data-precio="42990"
+                         data-imagen="assets/img/pintura.jpg">
+                    <a href="detalle-producto.html?id=6">
+                        <img src="assets/img/tineta.jpg" alt="Tineta Esmalte al Agua Blanco 5 Galones">
                     </a>
                     <span class="categoria-badge">Pinturas</span>
-                    <h3><a href="detalle-producto.html">Esmalte al Agua Blanco 5 Gal</a></h3>
+                    <h3><a href="detalle-producto.html?id=6">Esmalte al Agua Blanco 5 Gal</a></h3>
                     <p class="descripcion-breve">Terminación lavable antihongos para muros de interior y exterior.</p>
                     <p class="precio">$42.990</p>
                     <div class="acciones-producto">
-                        <a class="boton-tarjeta" href="detalle-producto.html">Ver Detalle</a>
+                        <a class="boton-tarjeta" href="detalle-producto.html?id=6">Ver Detalle</a>
                         <button type="button" class="boton-agregar-carrito">Añadir al Carrito</button>
                     </div>
                 </article>
 
                 <!-- Producto 7 -->
-                <article class="tarjeta-producto">
-                    <a href="detalle-producto.html">
-                        <img src="assets/img/sierra-circular.jpg" alt="Sierra Circular 7 1/4 1800W">
+                <article class="tarjeta-producto"
+                         data-id="7"
+                         data-nombre="Sierra Circular 7 1/4 1800W"
+                         data-precio="68990"
+                         data-imagen="assets/img/sierra-circular.jpg">
+                    <a href="detalle-producto.html?id=7">
+                        <img src="assets/img/sierra.jpg" alt="Sierra Circular 7 1/4 1800W">
                     </a>
                     <span class="categoria-badge">Herramientas Eléctricas</span>
-                    <h3><a href="detalle-producto.html">Sierra Circular 7 1/4 1800W</a></h3>
+                    <h3><a href="detalle-producto.html?id=7">Sierra Circular 7 1/4 1800W</a></h3>
                     <p class="descripcion-breve">Guía láser integrada para cortes precisos en maderas y vigas.</p>
                     <p class="precio">$68.990</p>
                     <div class="acciones-producto">
-                        <a class="boton-tarjeta" href="detalle-producto.html">Ver Detalle</a>
+                        <a class="boton-tarjeta" href="detalle-producto.html?id=7">Ver Detalle</a>
                         <button type="button" class="boton-agregar-carrito">Añadir al Carrito</button>
                     </div>
                 </article>
 
                 <!-- Producto 8 -->
-                <article class="tarjeta-producto">
-                    <a href="detalle-producto.html">
-                        <img src="assets/img/adhesivo-ceramico.jpg" alt="Adhesivo Cerámico Polvo 25 kg">
+                <article class="tarjeta-producto"
+                         data-id="8"
+                         data-nombre="Adhesivo Cerámico 25 kg"
+                         data-precio="5290"
+                         data-imagen="assets/img/adhesivo.jpg">
+                    <a href="detalle-producto.html?id=8">
+                        <img src="assets/img/adhesivo.jpg" alt="Adhesivo Cerámico Polvo 25 kg">
                     </a>
                     <span class="categoria-badge">Construcción</span>
-                    <h3><a href="detalle-producto.html">Adhesivo Cerámico 25 kg</a></h3>
-                    <p class="descripcion-breve">Mortero de adherencia extra fuerte para revestimientos y porcelanatos.
-                    </p>
+                    <h3><a href="detalle-producto.html?id=8">Adhesivo Cerámico 25 kg</a></h3>
+                    <p class="descripcion-breve">Mortero de adherencia extra fuerte para revestimientos y porcelanatos.</p>
                     <p class="precio">$5.290</p>
                     <div class="acciones-producto">
-                        <a class="boton-tarjeta" href="detalle-producto.html">Ver Detalle</a>
+                        <a class="boton-tarjeta" href="detalle-producto.html?id=8">Ver Detalle</a>
                         <button type="button" class="boton-agregar-carrito">Añadir al Carrito</button>
                     </div>
                 </article>
 
                 <!-- Producto 9 -->
-                <article class="tarjeta-producto">
-                    <a href="detalle-producto.html">
-                        <img src="assets/img/cable-electrico.jpg" alt="Rollo Cable THHN 2.5 mm 100m">
+                <article class="tarjeta-producto"
+                         data-id="9"
+                         data-nombre="Rollo Cable THHN 2.5 mm² (100m)"
+                         data-precio="32990"
+                         data-imagen="assets/img/cable-electrico.jpg">
+                    <a href="detalle-producto.html?id=9">
+                        <img src="assets/img/rollo.jpg" alt="Rollo Cable THHN 2.5 mm 100m">
                     </a>
                     <span class="categoria-badge">Electricidad</span>
-                    <h3><a href="detalle-producto.html">Rollo Cable THHN 2.5 mm² (100m)</a></h3>
+                    <h3><a href="detalle-producto.html?id=9">Rollo Cable THHN 2.5 mm² (100m)</a></h3>
                     <p class="descripcion-breve">Conductor de cobre para instalaciones residenciales y comerciales.</p>
                     <p class="precio">$32.990</p>
                     <div class="acciones-producto">
-                        <a class="boton-tarjeta" href="detalle-producto.html">Ver Detalle</a>
+                        <a class="boton-tarjeta" href="detalle-producto.html?id=9">Ver Detalle</a>
                         <button type="button" class="boton-agregar-carrito">Añadir al Carrito</button>
                     </div>
                 </article>
 
                 <!-- Producto 10 -->
-                <article class="tarjeta-producto">
-                    <a href="detalle-producto.html">
-                        <img src="assets/img/llave-impacto.jpg" alt="Llave de Impacto Inalámbrica 1/2 pulgada">
+                <article class="tarjeta-producto"
+                         data-id="10"
+                         data-nombre="Llave de Impacto 1/2 20V"
+                         data-precio="79990"
+                         data-imagen="assets/img/llave-impacto.jpg">
+                    <a href="detalle-producto.html?id=10">
+                        <img src="assets/img/llave.jpg" alt="Llave de Impacto Inalámbrica 1/2 pulgada">
                     </a>
                     <span class="categoria-badge">Herramientas Eléctricas</span>
-                    <h3><a href="detalle-producto.html">Llave de Impacto 1/2 20V</a></h3>
-                    <p class="descripcion-breve">Torque máximo de 400 Nm para estructuras metálicas y talleres
-                        mecánicos.</p>
+                    <h3><a href="detalle-producto.html?id=10">Llave de Impacto 1/2 20V</a></h3>
+                    <p class="descripcion-breve">Torque máximo de 400 Nm para estructuras metálicas y talleres mecánicos.</p>
                     <p class="precio">$79.990</p>
                     <div class="acciones-producto">
-                        <a class="boton-tarjeta" href="detalle-producto.html">Ver Detalle</a>
+                        <a class="boton-tarjeta" href="detalle-producto.html?id=10">Ver Detalle</a>
                         <button type="button" class="boton-agregar-carrito">Añadir al Carrito</button>
                     </div>
                 </article>
@@ -222,7 +264,9 @@
         </div>
     </footer>
 
+    <!-- Scripts necesarios -->
     <script src="assets/js/app.js"></script>
+    <script src="assets/js/menu.js"></script>
 </body>
 
 </html>

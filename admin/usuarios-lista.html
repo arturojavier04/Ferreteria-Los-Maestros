@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Listado de usuarios registrados en el sistema.">
+  <title>Gestión de Usuarios | Admin</title>
+  <link rel="stylesheet" href="../assets/css/estilos.css">
+</head>
+<body class="layout-admin">
+  <a class="salto-contenido" href="#contenido-admin">Ir al contenido</a>
+
+  <aside class="sidebar-admin" aria-label="Navegación del administrador">
+    <div class="marca-admin">
+      <h2>🔨 Admin Maestros</h2>
+    </div>
+    <nav>
+      <ul class="menu-admin">
+        <li><a href="home.html">📊 Dashboard</a></li>
+        <li><a href="productos-lista.html">📦 Inventario / Productos</a></li>
+        <li><a href="usuarios-lista.html" aria-current="page" class="activo">👥 Gestión de Usuarios</a></li>
+        <li><a href="../index.html" target="_blank">🌐 Ver Tienda Pública</a></li>
+        <li><a href="../login.html">🚪 Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main id="contenido-admin" class="contenido-panel">
+    <header class="barra-superior-admin">
+      <h1>Gestión de Usuarios</h1>
+      <a class="boton-admin" href="usuario-nuevo.html">+ Nuevo Usuario</a>
+    </header>
+
+    <section class="tabla-contenedor">
+      <table class="tabla-admin">
+        <thead>
+          <tr>
+            <th>RUN</th>
+            <th>Nombre Completo</th>
+            <th>Correo Electrónico</th>
+            <th>Rol / Perfil</th>
+            <th>Comuna</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>14256789K</td>
+            <td>Juan Pérez González</td>
+            <td>juan.perez@duoc.cl</td>
+            <td><span class="badge-rol rol-admin">Administrador</span></td>
+            <td>La Serena</td>
+            <td>
+              <a href="usuario-nuevo.html?id=1" class="btn-accion-editar">Editar</a>
+              <button type="button" class="btn-accion-eliminar">Desactivar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>183459123</td>
+            <td>Marcos Rodríguez</td>
+            <td>m.rodriguez@gmail.com</td>
+            <td><span class="badge-rol rol-vendedor">Vendedor</span></td>
+            <td>Coquimbo</td>
+            <td>
+              <a href="usuario-nuevo.html?id=2" class="btn-accion-editar">Editar</a>
+              <button type="button" class="btn-accion-eliminar">Desactivar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>198765432</td>
+            <td>Pedro Alvarado</td>
+            <td>pedro.obras@gmail.com</td>
+            <td><span class="badge-rol rol-cliente">Cliente</span></td>
+            <td>La Serena</td>
+            <td>
+              <a href="usuario-nuevo.html?id=3" class="btn-accion-editar">Editar</a>
+              <button type="button" class="btn-accion-eliminar">Desactivar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+<script src="../assets/js/validaciones.js"></script>
+</body>
+</html>
