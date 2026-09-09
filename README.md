@@ -7,7 +7,7 @@ Proyecto para la Evaluación 1 de Desarrollo FullStack II (Duoc UC).
 ## 👥 Integrantes
 * **Kevis González**
 * **Yerickson Rodríguez**
-* **Javier Cruz**
+* **Javier Cruz****
 
 ---
 
@@ -44,3 +44,4 @@ Creamos este sitio web para ayudar a la ferretería a modernizarse, permitiendo 
 ### ⚙️ Administrador
 * `admin/home.html`: Panel de control.
 * Mantenedores para revisar, agregar y modificar productos y usuarios.
+
