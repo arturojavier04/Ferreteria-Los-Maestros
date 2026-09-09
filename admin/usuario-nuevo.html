@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <title>Nuevo Usuario | Admin</title>
   <link rel="stylesheet" href="../assets/css/estilos.css">
 </head>
+
 <body class="layout-admin">
   <a class="salto-contenido" href="#contenido-admin">Ir al contenido</a>
 
@@ -36,7 +38,8 @@
         <div class="fila-dos-campos">
           <div class="campo-grupo">
             <label for="admin-user-run">RUN (Sin puntos ni guión) <span class="obligatorio">*</span></label>
-            <input type="text" id="admin-user-run" name="run" minlength="7" maxlength="9" placeholder="Ej: 19011022K" required>
+            <input type="text" id="admin-user-run" name="run" minlength="7" maxlength="9" placeholder="Ej: 19011022K"
+              required>
             <small class="mensaje-error" id="error-admin-run"></small>
           </div>
           <div class="campo-grupo">
@@ -66,7 +69,8 @@
 
         <div class="campo-grupo">
           <label for="admin-user-correo">Correo electrónico <span class="obligatorio">*</span></label>
-          <input type="email" id="admin-user-correo" name="correo" maxlength="100" placeholder="usuario@duoc.cl o usuario@gmail.com" required>
+          <input type="email" id="admin-user-correo" name="correo" maxlength="100"
+            placeholder="usuario@duoc.cl o usuario@gmail.com" required>
           <small class="sugerencia">Dominios autorizados: @duoc.cl, @profesor.duoc.cl, @gmail.com</small>
           <small class="mensaje-error" id="error-admin-correo"></small>
         </div>
@@ -80,7 +84,8 @@
           </div>
           <div class="campo-grupo">
             <label for="admin-user-direccion">Dirección <span class="obligatorio">*</span></label>
-            <input type="text" id="admin-user-direccion" name="direccion" maxlength="300" placeholder="Calle, número, depto" required>
+            <input type="text" id="admin-user-direccion" name="direccion" maxlength="300"
+              placeholder="Calle, número, depto" required>
             <small class="mensaje-error" id="error-admin-direccion"></small>
           </div>
         </div>
@@ -89,6 +94,9 @@
       </form>
     </section>
   </main>
-<script src="../assets/js/validaciones.js"></script>
+  <script src="../assets/js/validaciones.js"></script>
+  <script src="assets/js/menu.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
+
 </html>

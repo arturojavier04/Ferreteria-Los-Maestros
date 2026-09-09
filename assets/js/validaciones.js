@@ -208,7 +208,7 @@
         const valorCorreo = (correo.value || '').trim().toLowerCase();
         if (valorCorreo === 'admin@duoc.cl' || valorCorreo.includes('admin')) {
           alert('Bienvenido al panel de administración');
-          window.location.href = 'admin/admin-home.html';
+          window.location.href = 'admin/home.html';
         } else {
           alert('Inicio de sesión exitoso');
           window.location.href = 'index.html';
