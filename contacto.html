@@ -11,25 +11,32 @@
 </head>
 
 <body>
+    <!-- Enlace de salto accesible (Guía 2) -->
     <a class="salto-contenido" href="#contenido-principal">Ir al contenido</a>
 
-    <!-- Header -->
+    <!-- Cabecera principal (Guías 2 y 7) -->
     <header class="cabecera-sitio">
         <div class="barra-superior">
             <a class="marca" href="index.html">🔨 Ferretería Los Maestros</a>
-            <nav aria-label="Navegación principal">
-                <ul class="menu">
+
+            <!-- 1. Botón menú hamburguesa fuera y antes del nav (Guía 7, sec. 11.3) -->
+            <button id="boton-menu" class="boton-menu" type="button" aria-label="Abrir o cerrar menú principal"
+                aria-controls="menu-principal" aria-expanded="false">
+                <span aria-hidden="true">☰</span>
+            </button>
+
+            <!-- 2. Nav con id="menu-principal" y class="menu" -->
+            <nav id="menu-principal" class="menu" aria-label="Navegación principal">
+                <ul class="menu-lista">
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="productos.html">Productos</a></li>
                     <li><a href="nosotros.html">Nosotros</a></li>
                     <li><a href="blogs.html">Blogs</a></li>
                     <li><a href="contacto.html" aria-current="page">Contacto</a></li>
                 </ul>
-
-                
-            </button>
-            
             </nav>
+
+            <!-- 3. Acciones de usuario -->
             <div class="acciones-usuario">
                 <a class="enlace-carrito" href="carrito.html">🛒 Carrito (<span id="cant-carrito">0</span>)</a>
                 <div class="enlaces-auth">
@@ -40,50 +47,53 @@
         </div>
     </header>
 
-    <!-- Contenido principal -->
+    <!-- Contenido principal (Guía 8, sec. 6) -->
     <main id="contenido-principal" class="contenedor-formulario">
         <section class="tarjeta-formulario" aria-labelledby="titulo-contacto">
             <div class="encabezado-form">
-                <span class="icono-form">✉️</span>
+                <span class="icono-form" aria-hidden="true">✉️</span>
                 <h1 id="titulo-contacto">Formulario de Contacto</h1>
                 <p>¿Tienes dudas con un pedido o requieres una cotización especial? Escríbenos.</p>
             </div>
 
             <form id="form-contacto" class="formulario" novalidate>
-                <!-- Nombre completo -->
+                <!-- Nombre completo con aria-describedby (Guía 8, sec. 6) -->
                 <div class="campo-grupo">
                     <label for="nombre-contacto">Nombre completo <span class="obligatorio">*</span></label>
                     <input type="text" id="nombre-contacto" name="nombre" maxlength="100" placeholder="Ej: Juan Pérez"
-                        required>
+                        aria-describedby="error-nombre" required>
                     <small class="mensaje-error" id="error-nombre"></small>
                 </div>
 
-                <!-- Correo electrónico -->
+                <!-- Correo electrónico con aria-describedby (Guía 8, sec. 6) -->
                 <div class="campo-grupo">
                     <label for="correo-contacto">Correo electrónico <span class="obligatorio">*</span></label>
                     <input type="email" id="correo-contacto" name="correo" maxlength="100"
-                        placeholder="usuario@duoc.cl o usuario@gmail.com" required>
+                        placeholder="usuario@duoc.cl o usuario@gmail.com" aria-describedby="error-correo" required>
                     <small class="sugerencia">Dominios permitidos: @duoc.cl, @profesor.duoc.cl, @gmail.com</small>
                     <small class="mensaje-error" id="error-correo"></small>
                 </div>
 
-                <!-- Comentario / Mensaje -->
+                <!-- Comentario / Mensaje con aria-describedby (Guía 8, sec. 6) -->
                 <div class="campo-grupo">
                     <label for="mensaje-contacto">Comentario o Consulta <span class="obligatorio">*</span></label>
                     <textarea id="mensaje-contacto" name="mensaje" rows="5" maxlength="500"
-                        placeholder="Escribe tu mensaje aquí..." required></textarea>
+                        placeholder="Escribe tu mensaje aquí..." aria-describedby="error-mensaje" required></textarea>
                     <small class="contador-caracteres"><span id="chars-mensaje">0</span>/500 caracteres</small>
                     <small class="mensaje-error" id="error-mensaje"></small>
                 </div>
 
                 <button type="submit" class="boton-enviar">ENVIAR MENSAJE</button>
-                <div id="alerta-exito-contacto" class="alerta-exito oculto">¡Tu mensaje ha sido enviado exitosamente!
-                    Nos contactaremos a la brevedad.</div>
+
+                <!-- Mensaje de estado accesible con role="status" (Guía 8, sec. 6) -->
+                <p id="alerta-exito-contacto" class="alerta-exito oculto" role="status">
+                    ¡Tu mensaje ha sido enviado exitosamente! Nos contactaremos a la brevedad.
+                </p>
             </form>
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer institucional (Guía 2) -->
     <footer class="pie-sitio">
         <div class="info-footer">
             <p><strong>Ferretería Los Maestros</strong></p>
@@ -98,8 +108,9 @@
         </div>
     </footer>
 
-    <script src="assets/js/app.js"></script>
+    <!-- Scripts externos en orden estándar (Guías 1, 7 y 8) -->
     <script src="assets/js/menu.js"></script>
+    <script src="assets/js/app.js"></script>
     <script src="assets/js/validaciones.js"></script>
 </body>
 

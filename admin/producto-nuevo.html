@@ -18,9 +18,9 @@
     </div>
     <nav>
       <ul class="menu-admin">
-        <li><a href="home.html">📊 Dashboard</a></li>
-        <li><a href="productos-lista.html" class="activo">📦 Inventario / Productos</a></li>
-        <li><a href="usuarios-lista.html">👥 Gestión de Usuarios</a></li>
+        <li><a href="admin-home.html">📊 Dashboard</a></li>
+        <li><a href="admin-productos-lista.html" class="activo">📦 Inventario / Productos</a></li>
+        <li><a href="admin-usuarios-lista.html">👥 Gestión de Usuarios</a></li>
         <li><a href="../index.html" target="_blank">🌐 Ver Tienda Pública</a></li>
         <li><a href="../login.html">🚪 Cerrar Sesión</a></li>
       </ul>
@@ -30,7 +30,7 @@
   <main id="contenido-admin" class="contenido-panel">
     <header class="barra-superior-admin">
       <h1>Registrar Nuevo Producto</h1>
-      <a class="boton-secundario" href="productos-lista.html">← Volver al listado</a>
+      <a class="boton-secundario" href="admin-productos-lista.html">← Volver al listado</a>
     </header>
 
     <section class="formulario-admin-card">
@@ -38,14 +38,14 @@
         <div class="campo-grupo">
           <label for="prod-codigo">Código de Producto <span class="obligatorio">*</span></label>
           <input type="text" id="prod-codigo" name="codigo" minlength="3"
-            placeholder="Mínimo 3 caracteres (ej: HERR-101)" required>
+            placeholder="Mínimo 3 caracteres (ej: HERR-101)" aria-describedby="error-prod-codigo" required>
           <small class="mensaje-error" id="error-prod-codigo"></small>
         </div>
 
         <div class="campo-grupo">
           <label for="prod-nombre">Nombre del Producto <span class="obligatorio">*</span></label>
           <input type="text" id="prod-nombre" name="nombre" maxlength="100" placeholder="Máximo 100 caracteres"
-            required>
+            aria-describedby="error-prod-nombre" required>
           <small class="mensaje-error" id="error-prod-nombre"></small>
         </div>
 
@@ -59,12 +59,12 @@
           <div class="campo-grupo">
             <label for="prod-precio">Precio ($ CLP) <span class="obligatorio">*</span></label>
             <input type="number" id="prod-precio" name="precio" min="0" step="1" placeholder="Mayor o igual a 0"
-              required>
+              aria-describedby="error-prod-precio" required>
             <small class="mensaje-error" id="error-prod-precio"></small>
           </div>
           <div class="campo-grupo">
             <label for="prod-categoria">Categoría <span class="obligatorio">*</span></label>
-            <select id="prod-categoria" name="categoria" required>
+            <select id="prod-categoria" name="categoria" aria-describedby="error-prod-categoria" required>
               <option value="">- Seleccione categoría -</option>
               <option value="electricas">Herramientas Eléctricas</option>
               <option value="manuales">Herramientas Manuales</option>
@@ -80,7 +80,7 @@
           <div class="campo-grupo">
             <label for="prod-stock">Stock Inicial <span class="obligatorio">*</span></label>
             <input type="number" id="prod-stock" name="stock" min="0" step="1"
-              placeholder="Número entero mayor o igual a 0" required>
+              placeholder="Número entero mayor o igual a 0" aria-describedby="error-prod-stock" required>
             <small class="mensaje-error" id="error-prod-stock"></small>
           </div>
           <div class="campo-grupo">
@@ -99,10 +99,9 @@
       </form>
     </section>
   </main>
-  <script src="../assets/js/validaciones.js"></script>
-  <script src="..assets/js/menu.js"></script>
-  <script src="..assets/js/app.js"></script>
 
+  <!-- Solo validaciones.js en la administración -->
+  <script src="../assets/js/validaciones.js"></script>
 </body>
 
 </html>

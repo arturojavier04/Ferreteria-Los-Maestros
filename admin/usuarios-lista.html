@@ -12,25 +12,27 @@
 <body class="layout-admin">
   <a class="salto-contenido" href="#contenido-admin">Ir al contenido</a>
 
+  <!-- Sidebar Lateral -->
   <aside class="sidebar-admin" aria-label="Navegación del administrador">
     <div class="marca-admin">
       <h2>🔨 Admin Maestros</h2>
     </div>
     <nav>
       <ul class="menu-admin">
-        <li><a href="home.html">📊 Dashboard</a></li>
-        <li><a href="productos-lista.html">📦 Inventario / Productos</a></li>
-        <li><a href="usuarios-lista.html" aria-current="page" class="activo">👥 Gestión de Usuarios</a></li>
+        <li><a href="admin-home.html">📊 Dashboard</a></li>
+        <li><a href="admin-productos-lista.html">📦 Inventario / Productos</a></li>
+        <li><a href="admin-usuarios-lista.html" aria-current="page" class="activo">👥 Gestión de Usuarios</a></li>
         <li><a href="../index.html" target="_blank">🌐 Ver Tienda Pública</a></li>
         <li><a href="../login.html">🚪 Cerrar Sesión</a></li>
       </ul>
     </nav>
   </aside>
 
+  <!-- Contenido Principal -->
   <main id="contenido-admin" class="contenido-panel">
     <header class="barra-superior-admin">
       <h1>Gestión de Usuarios</h1>
-      <a class="boton-admin" href="usuario-nuevo.html">+ Nuevo Usuario</a>
+      <a class="boton-admin" href="admin-usuarios-nuevo.html">+ Nuevo Usuario</a>
     </header>
 
     <section class="tabla-contenedor">
@@ -53,8 +55,8 @@
             <td><span class="badge-rol rol-admin">Administrador</span></td>
             <td>La Serena</td>
             <td>
-              <a href="usuario-nuevo.html?id=1" class="btn-accion-editar">Editar</a>
-              <button type="button" class="btn-accion-eliminar">Desactivar</button>
+              <a href="admin-usuarios-nuevo.html?id=1" class="btn-accion-editar">Editar</a>
+              <button type="button" class="btn-accion-eliminar">Eliminar</button>
             </td>
           </tr>
           <tr>
@@ -64,8 +66,8 @@
             <td><span class="badge-rol rol-vendedor">Vendedor</span></td>
             <td>Coquimbo</td>
             <td>
-              <a href="usuario-nuevo.html?id=2" class="btn-accion-editar">Editar</a>
-              <button type="button" class="btn-accion-eliminar">Desactivar</button>
+              <a href="admin-usuarios-nuevo.html?id=2" class="btn-accion-editar">Editar</a>
+              <button type="button" class="btn-accion-eliminar">Eliminar</button>
             </td>
           </tr>
           <tr>
@@ -75,17 +77,17 @@
             <td><span class="badge-rol rol-cliente">Cliente</span></td>
             <td>La Serena</td>
             <td>
-              <a href="usuario-nuevo.html?id=3" class="btn-accion-editar">Editar</a>
-              <button type="button" class="btn-accion-eliminar">Desactivar</button>
+              <a href="admin-usuarios-nuevo.html?id=3" class="btn-accion-editar">Editar</a>
+              <button type="button" class="btn-accion-eliminar">Eliminar</button>
             </td>
           </tr>
         </tbody>
       </table>
     </section>
   </main>
+
+  <!-- Único script necesario en el panel -->
   <script src="../assets/js/validaciones.js"></script>
-  <script src="assets/js/menu.js"></script>
-  <script src="assets/js/app.js"></script>
 </body>
 
 </html>

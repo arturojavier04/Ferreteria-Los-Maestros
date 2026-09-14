@@ -5,29 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Ferretería Los Maestros - Venta de materiales de construcción, herramientas y ferretería general en La Serena.">
+        content="Materiales de construcción y herramientas de Ferretería Los Maestros en La Serena">
     <title>Inicio | Ferretería Los Maestros</title>
     <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
 
 <body>
-    <!-- Enlace contenido principal -->
+    <!-- Enlace accesible para saltar al contenido principal (Guía 2) -->
     <a class="salto-contenido" href="#contenido-principal">Ir al contenido</a>
 
-    <!-- Cabecera principal -->
+    <!-- Cabecera principal (Guía 2 y Guía 7) -->
     <header class="cabecera-sitio">
         <div class="barra-superior">
             <a class="marca" href="index.html">🔨 Ferretería Los Maestros</a>
 
-            <!-- Navegación principal -->
+            <!-- Botón menú hamburguesa accesible (Guía 7, sección 11.3) -->
             <button id="boton-menu" class="boton-menu" type="button" aria-label="Abrir o cerrar menú principal"
                 aria-controls="menu-principal" aria-expanded="false">
-
                 <span aria-hidden="true">☰</span>
-
             </button>
-            <nav id="menu-principal" aria-label="Navegación principal">
 
+            <!-- Navegación principal accesible (Guía 2 y Guía 7) -->
+            <nav id="menu-principal" class="menu" aria-label="Navegación principal">
                 <ul class="menu-lista">
                     <li><a href="index.html" aria-current="page">Inicio</a></li>
                     <li><a href="productos.html">Productos</a></li>
@@ -35,12 +34,9 @@
                     <li><a href="blogs.html">Blogs</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
-
-                
-            </button>
             </nav>
 
-            <!-- Carrito de compras -->
+            <!-- Acciones de usuario y carrito -->
             <div class="acciones-usuario">
                 <a class="enlace-carrito" href="carrito.html">🛒 Carrito (<span id="cant-carrito">0</span>)</a>
                 <div class="enlaces-auth">
@@ -51,19 +47,19 @@
         </div>
     </header>
 
-    <!-- Contenido principal -->
+    <!-- Contenido principal único (Guía 2, sección 5.2) -->
     <main id="contenido-principal">
 
-        <!-- Presentación -->
+        <!-- Presentación directa sin <div> envolvente (Guía 2, sección 7) -->
         <section class="presentacion">
-            <p class="etiqueta">Materiales & Herramientas en La serena</p>
+            <p class="etiqueta">Materiales & Herramientas en La Serena</p>
             <h1>Construye con la confianza de los verdaderos maestros</h1>
             <p>Más de 22 años equipando a maestros de obra, contratistas y familias de la Región de Coquimbo con stock
                 garantizado.</p>
             <a class="boton" href="productos.html">Ver catálogo de productos</a>
         </section>
 
-        <!-- Catálogo de Productos Destacados -->
+        <!-- Catálogo de Productos Destacados en artículos independientes (Guía 2, sección 7) -->
         <section class="seccion-catalogo" aria-labelledby="titulo-productos">
             <h2 id="titulo-productos">Productos Destacados</h2>
 
@@ -106,7 +102,7 @@
             </div>
         </section>
 
-        <!-- Aviso -->
+        <!-- Contenido complementario en aside (Guía 2, sección 5.2) -->
         <aside class="aviso" aria-labelledby="titulo-aviso">
             <h2 id="titulo-aviso">¿Eres contratista o maestro de obra?</h2>
             <p>Crea tu cuenta para consultar stock en tiempo real y gestionar tus compras con cuenta corriente.</p>
@@ -114,7 +110,7 @@
         </aside>
     </main>
 
-    <!-- Pie de página (Footer) -->
+    <!-- Pie de página semántico con address y small (Guía 2, sección 7) -->
     <footer class="pie-sitio">
         <div class="info-footer">
             <p><strong>Ferretería Los Maestros</strong></p>
@@ -129,9 +125,9 @@
         </div>
     </footer>
 
-    <!-- Archivo JavaScript  -->
-    <script src="assets/js/app.js"></script>
+    <!-- Scripts externos enlazados al cierre del body (Guía 1 y Guía 7) -->
     <script src="assets/js/menu.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 
 </html>

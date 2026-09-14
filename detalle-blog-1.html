@@ -1,36 +1,42 @@
-<!-- detalle-blog-1.html -->
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Guía técnica sobre cemento y mezclas en La Serena.">
+    <meta name="description"
+        content="Guía técnica sobre la elección de cemento y hormigón en la zona costera de La Serena.">
     <title>Cómo elegir el cemento adecuado | Ferretería Los Maestros</title>
     <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
 
 <body>
+    <!-- Salto accesible (Guía 2) -->
     <a class="salto-contenido" href="#contenido-principal">Ir al contenido</a>
 
+    <!-- Cabecera principal uniforme (Guía 2 y Guía 7) -->
     <header class="cabecera-sitio">
         <div class="barra-superior">
             <a class="marca" href="index.html">🔨 Ferretería Los Maestros</a>
-            <nav aria-label="Navegación principal">
-                <ul class="menu">
+
+            <!-- Botón menú hamburguesa accesible (Guía 7, sec. 11.3) -->
+            <button id="boton-menu" class="boton-menu" type="button" aria-label="Abrir o cerrar menú principal"
+                aria-controls="menu-principal" aria-expanded="false">
+                <span aria-hidden="true">☰</span>
+            </button>
+
+            <!-- Navegación principal (sin aria-current porque es una vista de detalle) -->
+            <nav id="menu-principal" class="menu" aria-label="Navegación principal">
+                <ul class="menu-lista">
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="productos.html">Productos</a></li>
                     <li><a href="nosotros.html">Nosotros</a></li>
                     <li><a href="blogs.html">Blogs</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
-
-                <button id="boton-menu" class="boton-menu" type="button" aria-label="Abrir o cerrar menú principal"
-                    aria-controls="menu-principal" aria-expanded="false">
-                    <span aria-hidden="true">☰</span>
-                </button>
-
             </nav>
+
+            <!-- Acciones de usuario -->
             <div class="acciones-usuario">
                 <a class="enlace-carrito" href="carrito.html">🛒 Carrito (<span id="cant-carrito">0</span>)</a>
                 <div class="enlaces-auth">
@@ -41,52 +47,49 @@
         </div>
     </header>
 
-    <main id="contenido-principal" class="contenedor-articulo-blog">
-        <nav class="miga-de-pan" aria-label="Ruta de navegación">
-            <a href="index.html">Inicio</a> &gt;
-            <a href="blogs.html">Blogs</a> &gt;
-            <span aria-current="location">Guía Técnica #1</span>
-        </nav>
-
-        <article class="cuerpo-articulo">
-            <header class="encabezado-articulo">
-                <span class="etiqueta-blog">Guía Técnica de Construcción</span>
+    <!-- Contenido principal estructurado con article según la Guía 2, sección 11 -->
+    <main id="contenido-principal">
+        <article class="noticia-completa">
+            <header>
+                <p class="etiqueta">Guía Técnica de Obra</p>
                 <h1>Cómo elegir el cemento adecuado según el clima de La Serena</h1>
-                <p class="metadatos-blog">Publicado por <strong>Equipo Técnico Los Maestros</strong> · Región de
-                    Coquimbo</p>
+                <p>Publicado el <time datetime="2026-08-15">15 de agosto de 2026</time> por Equipo Técnico Los Maestros
+                </p>
             </header>
 
-            <div class="imagen-principal-articulo">
-                <img src="assets/img/cemento.jpg" alt="Sacos de cemento apilados en bodega">
-            </div>
+            <!-- Imagen semántica con figure y figcaption (Guía 2, sec. 11) -->
+            <figure>
+                <img src="assets/img/cemento.jpg" alt="Sacos de cemento especial acopiados en bodega de faena">
+                <figcaption>Almacenamiento correcto de sacos de cemento protegidos de la humedad costera.</figcaption>
+            </figure>
 
-            <div class="contenido-texto-articulo">
-                <p>En zonas costeras como La Serena y Coquimbo, la humedad ambiental y la salinidad son factores
-                    determinantes que afectan directamente el fraguado y la durabilidad de las estructuras de hormigón.
-                </p>
+            <p>En comunas costeras como La Serena y Coquimbo, la humedad ambiental constante y la salinidad marina son
+                factores críticos que afectan directamente la velocidad de fraguado y la durabilidad de las estructuras
+                de hormigón armado.</p>
 
-                <h2>1. Resistencia a sulfatos y brisa marina</h2>
-                <p>Para cimientos, radieres y muros exteriores cercanos al litoral, se sugiere utilizar cementos con
-                    adiciones puzolánicas o alta impermeabilidad, reduciendo la corrosión de las armaduras metálicas por
-                    cloruros.</p>
+            <h2>Factores clave para la preparación de mezclas</h2>
 
-                <h2>2. Control de evaporación y curado</h2>
-                <p>El viento constante en la bahía acelera la pérdida de humedad superficial en el hormigón fresco. Se
-                    debe regar la superficie de forma continua durante los primeros 7 días o usar membranas de curado.
-                </p>
+            <h3>1. Protección contra sulfatos y sales marinas</h3>
+            <p>El aire marino transporta cloruros que penetran en los poros del concreto, alcanzando las enfierraduras y
+                provocando corrosión prematura. Para cimientos, fundaciones y sobrecimientos se aconseja utilizar
+                cementos con adiciones puzolánicas que reduzcan la permeabilidad de la mezcla final.</p>
 
-                <h2>3. Dosificación sugerida</h2>
-                <p>Para aplicaciones residenciales generales, el Cemento Especial de 25 kg provee un balance adecuado
-                    entre resistencia a compresión y maniobrabilidad en faena.</p>
-            </div>
+            <h3>2. Control del agua de amasado y curado</h3>
+            <p>Las brisas costeras frecuentes durante la tarde aceleran la evaporación del agua superficial en radieres
+                y losas. Para evitar fisuras por retracción plástica, es indispensable mojar constantemente la
+                superficie durante al menos 7 días continuos tras el vaciado.</p>
 
-            <footer class="pie-articulo">
-                <a class="boton-secundario" href="blogs.html">← Volver a todos los blogs</a>
-                <a class="boton" href="productos.html">Ver materiales de construcción</a>
-            </footer>
+            <h3>3. Almacenamiento en obra</h3>
+            <p>Nunca acopies sacos de cemento directamente sobre el suelo de tierra. Utiliza tarimas de madera elevadas
+                y cúbrelos con polietileno impermeable para impedir que la camanchaca humedezca el polvo antes de la
+                faena.</p>
+
+            <!-- Retorno oficial según Guía 2, sección 11 -->
+            <p><a href="blogs.html">Volver a todas las noticias y blogs</a></p>
         </article>
     </main>
 
+    <!-- Footer institucional (Guía 2) -->
     <footer class="pie-sitio">
         <div class="info-footer">
             <p><strong>Ferretería Los Maestros</strong></p>
@@ -101,8 +104,9 @@
         </div>
     </footer>
 
-    <script src="assets/js/app.js"></script>
+    <!-- Scripts externos enlazados (Guía 1 y Guía 7) -->
     <script src="assets/js/menu.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 
 </html>

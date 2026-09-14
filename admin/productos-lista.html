@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mantenedor de productos e inventario.">
+  <meta name="description" content="Mantenedor de productos e inventario de Ferretería Los Maestros.">
   <title>Mantenedor de Productos | Admin</title>
   <link rel="stylesheet" href="../assets/css/estilos.css">
 </head>
@@ -18,9 +18,9 @@
     </div>
     <nav>
       <ul class="menu-admin">
-        <li><a href="home.html">📊 Dashboard</a></li>
-        <li><a href="productos-lista.html" aria-current="page" class="activo">📦 Inventario / Productos</a></li>
-        <li><a href="usuarios-lista.html">👥 Gestión de Usuarios</a></li>
+        <li><a href="admin-home.html">📊 Dashboard</a></li>
+        <li><a href="admin-productos-lista.html" aria-current="page" class="activo">📦 Inventario / Productos</a></li>
+        <li><a href="admin-usuarios-lista.html">👥 Gestión de Usuarios</a></li>
         <li><a href="../index.html" target="_blank">🌐 Ver Tienda Pública</a></li>
         <li><a href="../login.html">🚪 Cerrar Sesión</a></li>
       </ul>
@@ -30,7 +30,7 @@
   <main id="contenido-admin" class="contenido-panel">
     <header class="barra-superior-admin">
       <h1>Inventario y Catálogo de Productos</h1>
-      <a class="boton-admin" href="producto-nuevo.html">+ Nuevo Producto</a>
+      <a class="boton-admin" href="admin-productos-nuevo.html">+ Nuevo Producto</a>
     </header>
 
     <section class="tabla-contenedor">
@@ -55,7 +55,7 @@
             <td>15</td>
             <td>5</td>
             <td>
-              <a href="producto-nuevo.html?id=1" class="btn-accion-editar">Editar</a>
+              <a href="admin-productos-nuevo.html?id=1" class="btn-accion-editar">Editar</a>
               <button type="button" class="btn-accion-eliminar">Eliminar</button>
             </td>
           </tr>
@@ -67,7 +67,7 @@
             <td>4</td>
             <td>10</td>
             <td>
-              <a href="producto-nuevo.html?id=2" class="btn-accion-editar">Editar</a>
+              <a href="admin-productos-nuevo.html?id=2" class="btn-accion-editar">Editar</a>
               <button type="button" class="btn-accion-eliminar">Eliminar</button>
             </td>
           </tr>
@@ -79,7 +79,7 @@
             <td>30</td>
             <td>8</td>
             <td>
-              <a href="producto-nuevo.html?id=3" class="btn-accion-editar">Editar</a>
+              <a href="admin-productos-nuevo.html?id=3" class="btn-accion-editar">Editar</a>
               <button type="button" class="btn-accion-eliminar">Eliminar</button>
             </td>
           </tr>
@@ -91,7 +91,7 @@
             <td>12</td>
             <td>4</td>
             <td>
-              <a href="producto-nuevo.html?id=4" class="btn-accion-editar">Editar</a>
+              <a href="admin-productos-nuevo.html?id=4" class="btn-accion-editar">Editar</a>
               <button type="button" class="btn-accion-eliminar">Eliminar</button>
             </td>
           </tr>
@@ -99,9 +99,8 @@
       </table>
     </section>
   </main>
+
   <script src="../assets/js/validaciones.js"></script>
-  <script src="..assets/js/menu.js"></script>
-  <script src="..assets/js/app.js"></script>
 </body>
 
 </html>

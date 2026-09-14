@@ -12,16 +12,18 @@
 <body>
     <a class="salto-contenido" href="#contenido-principal">Ir al contenido</a>
 
-    <!-- Header -->
+
     <header class="cabecera-sitio">
         <div class="barra-superior">
             <a class="marca" href="index.html">🔨 Ferretería Los Maestros</a>
 
+            <!-- 1. El botón hamburguesa se escribe aquí (fuera y antes del nav) -->
             <button id="boton-menu" class="boton-menu" type="button" aria-label="Abrir o cerrar menú principal"
                 aria-controls="menu-principal" aria-expanded="false">
                 <span aria-hidden="true">☰</span>
             </button>
 
+            <!-- 2. La navegación debe llevar id="menu-principal" y class="menu" -->
             <nav id="menu-principal" class="menu" aria-label="Navegación principal">
                 <ul class="menu-lista">
                     <li><a href="index.html">Inicio</a></li>
@@ -30,41 +32,43 @@
                     <li><a href="blogs.html">Blogs</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
-
-                <div class="acciones-usuario">
-                    <a class="enlace-carrito" href="carrito.html">🛒 Carrito (<span id="cant-carrito">0</span>)</a>
-                    <div class="enlaces-auth">
-                        <a href="login.html" aria-current="page">Iniciar sesión</a> |
-                        <a href="registro.html">Registrar usuario</a>
-                    </div>
-                </div>
             </nav>
+
+            <!-- 3. Acciones de usuario y carrito -->
+            <div class="acciones-usuario">
+                <a class="enlace-carrito" href="carrito.html">🛒 Carrito (<span id="cant-carrito">0</span>)</a>
+                <div class="enlaces-auth">
+                    <a href="login.html">Iniciar sesión</a> |
+                    <a href="registro.html" aria-current="page">Registrar usuario</a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- Contenido principal -->
+    <!-- Contenido principal (Guía 8, sección 6) -->
     <main id="contenido-principal" class="contenedor-formulario">
         <section class="tarjeta-formulario tarjeta-login" aria-labelledby="titulo-login">
             <div class="encabezado-form">
-                <div class="logo-login">🔨</div>
-                <h2>Ferretería Los Maestros</h2>
+                <div class="logo-login" aria-hidden="true">🔨</div>
                 <h1 id="titulo-login">Inicio de sesión</h1>
+                <p class="etiqueta">Ferretería Los Maestros</p>
             </div>
 
             <form id="form-login" class="formulario" novalidate>
-                <!-- Correo -->
+                <!-- Correo con aria-describedby conectado a su error -->
                 <div class="campo-grupo">
                     <label for="login-correo">Correo electrónico <span class="obligatorio">*</span></label>
                     <input type="email" id="login-correo" name="correo" maxlength="100"
-                        placeholder="usuario@duoc.cl o usuario@gmail.com" required>
+                        placeholder="usuario@duoc.cl o usuario@gmail.com" aria-describedby="error-login-correo"
+                        required>
                     <small class="mensaje-error" id="error-login-correo"></small>
                 </div>
 
-                <!-- Contraseña -->
+                <!-- Contraseña con aria-describedby conectado a su error -->
                 <div class="campo-grupo">
                     <label for="login-password">Contraseña <span class="obligatorio">*</span></label>
                     <input type="password" id="login-password" name="password" minlength="4" maxlength="10"
-                        placeholder="Entre 4 y 10 caracteres" required>
+                        placeholder="Entre 4 y 10 caracteres" aria-describedby="error-login-password" required>
                     <small class="mensaje-error" id="error-login-password"></small>
                 </div>
 
@@ -90,6 +94,7 @@
         </div>
     </footer>
 
+    <!-- Scripts en orden exacto -->
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/validaciones.js"></script>

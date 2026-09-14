@@ -11,15 +11,23 @@
 </head>
 
 <body>
-    <!-- Enlace accesible -->
+    <!-- Enlace accesible de salto (Guía 2) -->
     <a class="salto-contenido" href="#contenido-principal">Ir al contenido</a>
 
-    <!-- Cabecera principal -->
+    <!-- Cabecera principal con botón hamburguesa accesible (Guías 2 y 7) -->
     <header class="cabecera-sitio">
         <div class="barra-superior">
             <a class="marca" href="index.html">🔨 Ferretería Los Maestros</a>
-            <nav aria-label="Navegación principal">
-                <ul class="menu">
+
+            <!-- 1. Botón fuera y antes del nav (Guía 7, sec. 11.3) -->
+            <button id="boton-menu" class="boton-menu" type="button" aria-label="Abrir o cerrar menú principal"
+                aria-controls="menu-principal" aria-expanded="false">
+                <span aria-hidden="true">☰</span>
+            </button>
+
+            <!-- 2. Nav con id="menu-principal" y class="menu" -->
+            <nav id="menu-principal" class="menu" aria-label="Navegación principal">
+                <ul class="menu-lista">
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="productos.html">Productos</a></li>
                     <li><a href="nosotros.html">Nosotros</a></li>
@@ -27,6 +35,8 @@
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
+
+            <!-- 3. Acciones de usuario con aria-current="page" en Carrito -->
             <div class="acciones-usuario">
                 <a class="enlace-carrito" href="carrito.html" aria-current="page">🛒 Carrito (<span
                         id="cant-carrito">0</span>)</a>
@@ -38,12 +48,12 @@
         </div>
     </header>
 
-    <!-- Contenido principal -->
+    <!-- Contenido principal estructurado -->
     <main id="contenido-principal" class="contenedor-carrito">
         <h1>Mi carrito de compras</h1>
 
         <div class="seccion-carrito-grid">
-            <!-- Lista de productos cargados dinámicamente o por maqueta -->
+            <!-- Lista de productos seleccionados -->
             <section class="lista-items-carrito" aria-labelledby="titulo-items">
                 <h2 id="titulo-items" class="oculto-visual">Productos seleccionados</h2>
 
@@ -82,7 +92,7 @@
                 </div>
             </section>
 
-            <!-- botón pagar -->
+            <!-- Resumen del pedido -->
             <aside class="resumen-pago" aria-labelledby="titulo-resumen">
                 <h2 id="titulo-resumen">Resumen del Pedido</h2>
 
@@ -91,8 +101,8 @@
                     <span id="monto-total"><strong>$69.770</strong></span>
                 </div>
 
-                <!-- Formulario Cupón de Descuento -->
-                <form class="form-cupon" onsubmit="event.preventDefault();">
+                <!-- Formulario limpio sin javascript inline -->
+                <form class="form-cupon" novalidate>
                     <label for="cupon">Ingrese cupón de descuento:</label>
                     <div class="input-cupon-grupo">
                         <input type="text" id="cupon" name="cupon" placeholder="Ej: MAESTRO10">
@@ -100,14 +110,13 @@
                     </div>
                 </form>
 
-                <!-- Botón de Confirmación -->
                 <button type="button" class="boton-pagar">PAGAR</button>
                 <a class="enlace-seguir-comprando" href="productos.html">← Seguir comprando</a>
             </aside>
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer institucional (Guía 2) -->
     <footer class="pie-sitio">
         <div class="info-footer">
             <p><strong>Ferretería Los Maestros</strong></p>
@@ -122,8 +131,9 @@
         </div>
     </footer>
 
-    <script src="assets/js/app.js"></script>
+    <!-- Scripts externos al final -->
     <script src="assets/js/menu.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 
 </html>
