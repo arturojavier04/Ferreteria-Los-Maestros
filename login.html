@@ -10,20 +10,21 @@
 </head>
 
 <body>
+    <!-- Enlace accesible de salto (Guía 2) -->
     <a class="salto-contenido" href="#contenido-principal">Ir al contenido</a>
 
-
+    <!-- Cabecera principal (Guía 7) -->
     <header class="cabecera-sitio">
         <div class="barra-superior">
             <a class="marca" href="index.html">🔨 Ferretería Los Maestros</a>
 
-            <!-- 1. El botón hamburguesa se escribe aquí (fuera y antes del nav) -->
+            <!-- 1. Botón fuera y antes del nav (Guía 7, sec. 11.3) -->
             <button id="boton-menu" class="boton-menu" type="button" aria-label="Abrir o cerrar menú principal"
                 aria-controls="menu-principal" aria-expanded="false">
                 <span aria-hidden="true">☰</span>
             </button>
 
-            <!-- 2. La navegación debe llevar id="menu-principal" y class="menu" -->
+            <!-- 2. Nav con id="menu-principal" y class="menu" -->
             <nav id="menu-principal" class="menu" aria-label="Navegación principal">
                 <ul class="menu-lista">
                     <li><a href="index.html">Inicio</a></li>
@@ -34,24 +35,24 @@
                 </ul>
             </nav>
 
-            <!-- 3. Acciones de usuario y carrito -->
+            <!-- 3. Acciones de usuario (aria-current="page" en Iniciar sesión) -->
             <div class="acciones-usuario">
                 <a class="enlace-carrito" href="carrito.html">🛒 Carrito (<span id="cant-carrito">0</span>)</a>
                 <div class="enlaces-auth">
-                    <a href="login.html">Iniciar sesión</a> |
-                    <a href="registro.html" aria-current="page">Registrar usuario</a>
+                    <a href="login.html" aria-current="page">Iniciar sesión</a> |
+                    <a href="registro.html">Registrar usuario</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Contenido principal (Guía 8, sección 6) -->
+    <!-- Contenido principal (Guía 3 y Guía 8) -->
     <main id="contenido-principal" class="contenedor-formulario">
         <section class="tarjeta-formulario tarjeta-login" aria-labelledby="titulo-login">
             <div class="encabezado-form">
-                <div class="logo-login" aria-hidden="true">🔨</div>
+                <span class="icono-form" aria-hidden="true">🔨</span>
                 <h1 id="titulo-login">Inicio de sesión</h1>
-                <p class="etiqueta">Ferretería Los Maestros</p>
+                <p>Ferretería Los Maestros</p>
             </div>
 
             <form id="form-login" class="formulario" novalidate>
@@ -79,7 +80,7 @@
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer institucional (Guía 2) -->
     <footer class="pie-sitio">
         <div class="info-footer">
             <p><strong>Ferretería Los Maestros</strong></p>
@@ -94,7 +95,7 @@
         </div>
     </footer>
 
-    <!-- Scripts en orden exacto -->
+    <!-- Scripts en orden: menú, tienda y validación -->
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/validaciones.js"></script>

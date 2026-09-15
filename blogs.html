@@ -11,20 +11,23 @@
 </head>
 
 <body>
+    <!-- Salto accesible (Guía 2) -->
     <a class="salto-contenido" href="#contenido-principal">Ir al contenido</a>
 
-    <!-- Header -->
+    <!-- Cabecera principal (Guía 7) -->
     <header class="cabecera-sitio">
         <div class="barra-superior">
             <a class="marca" href="index.html">🔨 Ferretería Los Maestros</a>
 
+            <!-- Botón fuera y antes del nav (Guía 7, sec. 11.3) -->
             <button id="boton-menu" class="boton-menu" type="button" aria-label="Abrir o cerrar menú principal"
                 aria-controls="menu-principal" aria-expanded="false">
                 <span aria-hidden="true">☰</span>
             </button>
 
-            <nav aria-label="Navegación principal">
-                <ul class="menu">
+            <!-- Nav principal con id y clase reglamentarias -->
+            <nav id="menu-principal" class="menu" aria-label="Navegación principal">
+                <ul class="menu-lista">
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="productos.html">Productos</a></li>
                     <li><a href="nosotros.html">Nosotros</a></li>
@@ -32,6 +35,7 @@
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
+
             <div class="acciones-usuario">
                 <a class="enlace-carrito" href="carrito.html">🛒 Carrito (<span id="cant-carrito">0</span>)</a>
                 <div class="enlaces-auth">
@@ -66,7 +70,7 @@
                 </div>
             </article>
 
-            <!-- Noticia  2 -->
+            <!-- Noticia 2 -->
             <article class="tarjeta-blog-horizontal">
                 <div class="info-blog">
                     <span class="etiqueta-blog">Consejo de Maestros #2</span>
@@ -82,7 +86,7 @@
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer institucional (Guía 2) -->
     <footer class="pie-sitio">
         <div class="info-footer">
             <p><strong>Ferretería Los Maestros</strong></p>
@@ -97,7 +101,8 @@
         </div>
     </footer>
 
-
+    <!-- Scripts externos -->
+    <script src="assets/js/app.js"></script>
     <script src="assets/js/menu.js"></script>
 </body>
 

@@ -1,5 +1,7 @@
+/* =====================================================================
+   1. VARIABLES Y RESET (Guía 2 y Guía 4)
+   ===================================================================== */
 :root {
-
     --color-primario: #1E3A4C;
     --color-primario-osc: #142835;
     --color-acento: #F2A93B;
@@ -11,8 +13,8 @@
     --color-borde: #DDDBD3;
     --color-error: #D64545;
     --color-exito: #2E7D4F;
-    --fuente-titulos: "Barlow Condensed", sans-serif;
-    --fuente-texto: "Inter", sans-serif;
+    --fuente-titulos: "Segoe UI", system-ui, -apple-system, sans-serif;
+    --fuente-texto: "Segoe UI", system-ui, -apple-system, sans-serif;
     --espacio-xs: 0.5rem;
     --espacio-sm: 1rem;
     --espacio-md: 1.5rem;
@@ -62,21 +64,21 @@ h2,
 h3 {
     font-family: var(--fuente-titulos);
     font-weight: 700;
-    line-height: 1.15;
+    line-height: 1.2;
     margin: 0 0 var(--espacio-sm);
     color: var(--color-primario);
 }
 
 h1 {
-    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-size: 2.2rem;
 }
 
 h2 {
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: 1.6rem;
 }
 
 h3 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
 }
 
 p {
@@ -89,7 +91,9 @@ button {
     cursor: pointer;
 }
 
-/* Accesibilidad: salto de contenido */
+/* =====================================================================
+   2. ACCESIBILIDAD (Guía 2)
+   ===================================================================== */
 .salto-contenido {
     position: absolute;
     left: -999px;
@@ -124,7 +128,6 @@ button {
     outline-offset: 2px;
 }
 
-/* Contenedor genérico centrado */
 main {
     display: block;
     max-width: var(--ancho-maximo);
@@ -132,9 +135,9 @@ main {
     padding: var(--espacio-lg) var(--espacio-md);
 }
 
-/* ---------------------------------------------------------------------
-   3. HEADER / NAVEGACIÓN
-   --------------------------------------------------------------------- */
+/* =====================================================================
+   3. CABECERA Y NAVEGACIÓN (Guía 2 y Guía 7)
+   ===================================================================== */
 .cabecera-sitio {
     background-color: var(--color-primario);
     position: sticky;
@@ -156,20 +159,38 @@ main {
 
 .marca {
     font-family: var(--fuente-titulos);
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     font-weight: 700;
     color: var(--color-superficie);
-    letter-spacing: 0.02em;
     white-space: nowrap;
 }
 
-.cabecera-sitio nav .menu {
-    display: flex;
-    gap: var(--espacio-md);
-    flex-wrap: wrap;
+/* Botón hamburguesa oculto por defecto en computadores */
+.boton-menu {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--color-superficie);
+    color: var(--color-superficie);
+    font-size: 1.3rem;
+    padding: 0.25rem 0.55rem;
+    border-radius: var(--radio-borde);
+    cursor: pointer;
 }
 
-.cabecera-sitio nav .menu a {
+/* Menú horizontal en escritorio */
+.menu {
+    display: flex;
+}
+
+.menu-lista {
+    display: flex;
+    gap: var(--espacio-md);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu-lista a {
     color: #D9E2E8;
     font-weight: 500;
     font-size: 0.95rem;
@@ -178,8 +199,8 @@ main {
     transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-.cabecera-sitio nav .menu a:hover,
-.cabecera-sitio nav .menu a[aria-current="page"] {
+.menu-lista a:hover,
+.menu-lista a[aria-current="page"] {
     color: var(--color-acento);
     border-bottom-color: var(--color-acento);
 }
@@ -188,7 +209,6 @@ main {
     display: flex;
     align-items: center;
     gap: var(--espacio-md);
-    flex-wrap: wrap;
     font-size: 0.9rem;
 }
 
@@ -217,9 +237,9 @@ main {
     color: var(--color-acento);
 }
 
-/* ---------------------------------------------------------------------
+/* =====================================================================
    4. BOTONES
-   --------------------------------------------------------------------- */
+   ===================================================================== */
 .boton,
 .boton-tarjeta,
 .boton-enviar,
@@ -235,7 +255,7 @@ main {
     border: none;
     border-radius: var(--radio-borde);
     text-align: center;
-    transition: background-color 0.15s ease, transform 0.1s ease;
+    transition: background-color 0.15s ease;
 }
 
 .boton:hover,
@@ -245,7 +265,6 @@ main {
 .boton-agregar-carrito:hover,
 .boton-pagar:hover {
     background-color: var(--color-acento-osc);
-    transform: translateY(-1px);
 }
 
 .boton-secundario {
@@ -273,55 +292,23 @@ main {
     font-size: 1rem;
 }
 
-/* ---------------------------------------------------------------------
-   5. HOME — PRESENTACIÓN Y CATÁLOGO DESTACADO
-   --------------------------------------------------------------------- */
+/* =====================================================================
+   5. PRESENTACIÓN Y CATÁLOGO
+   ===================================================================== */
 .presentacion {
-    /* Trik de "full bleed": hace que el banner ocupe TODO el ancho de la
-       ventana aunque esté dentro de un <main> con max-width limitado. */
-    position: relative;
-    left: 50%;
-    right: 50%;
-    width: 100vw;
-    margin-left: -50vw;
-    margin-right: -50vw;
-
-    /* Imagen de fondo con degradado oscuro encima para que el texto blanco
-       siempre sea legible, sin importar qué tan clara sea la foto.
-       Si la foto se ve mal recortada, ajusta el segundo valor de la línea
-       de abajo (center / cover): prueba "right center", "center top" o
-       un porcentaje como "70% 30%" hasta que se vea bien el producto. */
-    background:
-        linear-gradient(90deg, rgba(20, 40, 53, 0.93) 0%, rgba(20, 40, 53, 0.72) 55%, rgba(20, 40, 53, 0.25) 100%),
-        url("../img/hero-productos.jpg") center / cover no-repeat;
     background-color: var(--color-primario);
-    /* respaldo si la imagen no carga */
-
     color: var(--color-superficie);
-    min-height: 420px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-
-    padding-block: var(--espacio-xl);
-    /* Alinea el texto con el borde del contenedor normal en pantallas anchas,
-       y usa el espacio mínimo en pantallas angostas. */
-    padding-inline: max(var(--espacio-md), calc((100vw - var(--ancho-maximo)) / 2));
-}
-
-/* Limita el ancho del texto sin necesitar un div extra en el HTML */
-.presentacion>* {
-    max-width: 560px;
+    padding: var(--espacio-xl) var(--espacio-md);
+    border-radius: var(--radio-borde);
+    margin-bottom: var(--espacio-xl);
 }
 
 .presentacion .etiqueta {
     color: var(--color-acento);
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     font-size: 0.8rem;
-    margin-bottom: var(--espacio-xs);
 }
 
 .presentacion h1 {
@@ -334,7 +321,7 @@ main {
 }
 
 .aviso {
-    background-color: var(--color-primario);
+    background-color: var(--color-primario-osc);
     color: var(--color-superficie);
     border-radius: var(--radio-borde);
     padding: var(--espacio-lg);
@@ -365,7 +352,7 @@ main {
 .grilla-tarjetas,
 .grilla-tarjetas-catalogo {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: var(--espacio-md);
     margin-top: var(--espacio-md);
 }
@@ -380,13 +367,6 @@ main {
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.tarjeta:hover,
-.tarjeta-producto:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(20, 40, 53, 0.14);
 }
 
 .tarjeta img,
@@ -403,10 +383,6 @@ main {
     margin-bottom: 0.15rem;
 }
 
-.tarjeta-producto h3 a {
-    color: var(--color-primario);
-}
-
 .categoria-badge {
     align-self: flex-start;
     background-color: var(--color-fondo);
@@ -415,7 +391,6 @@ main {
     font-size: 0.72rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
     padding: 0.2rem 0.55rem;
     border-radius: 999px;
 }
@@ -440,7 +415,6 @@ main {
 .descripcion-breve {
     color: var(--color-texto-suave);
     font-size: 0.9rem;
-    margin-bottom: 0.2rem;
 }
 
 .acciones-producto {
@@ -466,30 +440,35 @@ main {
     background-color: var(--color-primario-osc);
 }
 
-.boton-tarjeta {
-    margin-top: auto;
-    align-self: flex-start;
+/* =====================================================================
+   6. ARTÍCULOS Y DETALLES (Guía 2, sección 11)
+   ===================================================================== */
+.noticia-completa {
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: var(--espacio-lg);
+    box-shadow: var(--sombra-tarjeta);
+    margin-bottom: var(--espacio-xl);
 }
 
-/* ---------------------------------------------------------------------
-   7. CABECERAS DE SECCIÓN (catálogo, blogs)
-   --------------------------------------------------------------------- */
-.seccion-cabecera-catalogo,
-.seccion-cabecera-blog {
-    text-align: center;
-    max-width: 640px;
-    margin: 0 auto var(--espacio-lg);
+.noticia-completa figure {
+    margin: var(--espacio-md) 0;
 }
 
-.seccion-cabecera-catalogo p,
-.seccion-cabecera-blog p {
+.noticia-completa figure img {
+    border-radius: var(--radio-borde);
+    max-height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.noticia-completa figcaption {
+    font-size: 0.85rem;
     color: var(--color-texto-suave);
-    margin-inline: auto;
+    margin-top: 0.4rem;
 }
 
-/* ---------------------------------------------------------------------
-   8. BLOGS — LISTADO
-   --------------------------------------------------------------------- */
 .lista-blogs {
     display: flex;
     flex-direction: column;
@@ -502,7 +481,7 @@ main {
     border-radius: var(--radio-borde);
     box-shadow: var(--sombra-tarjeta);
     display: grid;
-    grid-template-columns: 1fr 320px;
+    grid-template-columns: 1fr 300px;
     overflow: hidden;
 }
 
@@ -518,166 +497,18 @@ main {
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.75rem;
-    letter-spacing: 0.06em;
     margin-bottom: 0.3rem;
 }
 
 .imagen-blog img {
     height: 100%;
-    object-fit: cover;
-}
-
-/* ---------------------------------------------------------------------
-   9. BLOG — DETALLE / ARTÍCULO
-   --------------------------------------------------------------------- */
-.miga-de-pan {
-    font-size: 0.85rem;
-    color: var(--color-texto-suave);
-    margin-bottom: var(--espacio-md);
-}
-
-.miga-de-pan a {
-    color: var(--color-primario);
-    font-weight: 500;
-}
-
-.encabezado-articulo {
-    max-width: 70ch;
-    margin-bottom: var(--espacio-md);
-}
-
-.metadatos-blog {
-    color: var(--color-texto-suave);
-    font-size: 0.9rem;
-}
-
-.imagen-principal-articulo img {
-    border-radius: var(--radio-borde);
     width: 100%;
-    max-height: 380px;
-    object-fit: cover;
-    margin-bottom: var(--espacio-md);
-}
-
-.contenido-texto-articulo {
-    max-width: 70ch;
-}
-
-.contenido-texto-articulo h2 {
-    margin-top: var(--espacio-md);
-    font-size: 1.3rem;
-}
-
-.pie-articulo {
-    display: flex;
-    gap: var(--espacio-sm);
-    margin-top: var(--espacio-lg);
-    flex-wrap: wrap;
-}
-
-/* ---------------------------------------------------------------------
-   10. DETALLE DE PRODUCTO
-   --------------------------------------------------------------------- */
-.vista-producto-principal {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--espacio-lg);
-    margin-bottom: var(--espacio-xl);
-}
-
-.imagen-destacada img {
-    border-radius: var(--radio-borde);
-    aspect-ratio: 1 / 1;
     object-fit: cover;
 }
 
-.miniaturas-galeria {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-}
-
-.miniatura {
-    width: 64px;
-    height: 64px;
-    object-fit: cover;
-    border-radius: var(--radio-borde);
-    border: 2px solid transparent;
-    cursor: pointer;
-}
-
-.miniatura.activa,
-.miniatura:hover {
-    border-color: var(--color-acento);
-}
-
-.codigo-producto {
-    color: var(--color-texto-suave);
-    font-size: 0.85rem;
-}
-
-.descripcion-completa ul {
-    list-style: disc;
-    padding-left: 1.2rem;
-    color: var(--color-texto-suave);
-}
-
-.descripcion-completa li {
-    margin-bottom: 0.3rem;
-}
-
-.formulario-compra {
-    display: flex;
-    align-items: flex-end;
-    gap: var(--espacio-sm);
-    margin-top: var(--espacio-md);
-    flex-wrap: wrap;
-}
-
-.selector-cantidad-compra {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-}
-
-.selector-cantidad-compra input {
-    width: 80px;
-    padding: 0.5rem;
-    border: 1px solid var(--color-borde);
-    border-radius: var(--radio-borde);
-}
-
-.boton-anadir-grande {
-    width: auto;
-    flex: 1;
-    min-width: 200px;
-}
-
-.seccion-relacionados h2 {
-    margin-bottom: var(--espacio-sm);
-}
-
-/* ---------------------------------------------------------------------
-   11. NOSOTROS
-   --------------------------------------------------------------------- */
-.seccion-nosotros,
-.seccion-valores,
-.seccion-equipo {
-    margin-bottom: var(--espacio-xl);
-}
-
-.bloque-historia {
-    max-width: 75ch;
-}
-
-.seccion-valores .tarjeta,
-.seccion-equipo .tarjeta {
-    text-align: left;
-}
-
-/* ---------------------------------------------------------------------
-   12. FORMULARIOS (contacto, login, registro)
-   --------------------------------------------------------------------- */
+/* =====================================================================
+   7. FORMULARIOS (Guía 3 y Guía 8)
+   ===================================================================== */
 .contenedor-formulario {
     display: flex;
     justify-content: center;
@@ -694,10 +525,6 @@ main {
     max-width: 560px;
 }
 
-.tarjeta-formulario:has(#form-registro) {
-    max-width: 720px;
-}
-
 .encabezado-form {
     text-align: center;
     margin-bottom: var(--espacio-md);
@@ -705,21 +532,6 @@ main {
 
 .encabezado-form p {
     color: var(--color-texto-suave);
-    margin-inline: auto;
-}
-
-.icono-form,
-.logo-login {
-    font-size: 2rem;
-    margin-bottom: 0.3rem;
-}
-
-.tarjeta-login h2 {
-    font-size: 1.1rem;
-    color: var(--color-texto-suave);
-    font-family: var(--fuente-texto);
-    font-weight: 600;
-    margin-bottom: 0.2rem;
 }
 
 .formulario {
@@ -788,26 +600,17 @@ main {
 .mensaje-error {
     color: var(--color-error);
     font-size: 0.82rem;
-    min-height: 1em;
+    min-height: 1.2em;
 }
 
-/* Estados de validación aplicados por assets/js/validaciones.js */
-.campo-grupo input.campo-invalido,
-.campo-grupo select.campo-invalido,
-.campo-grupo textarea.campo-invalido {
-    border-color: var(--color-error);
+/* Clases de validación según Guía 8 */
+.campo-invalido {
+    border-color: var(--color-error) !important;
+    background-color: #FDF2F2 !important;
 }
 
-.campo-grupo input.campo-invalido:focus,
-.campo-grupo select.campo-invalido:focus,
-.campo-grupo textarea.campo-invalido:focus {
-    outline-color: var(--color-error);
-}
-
-.campo-grupo input.campo-valido,
-.campo-grupo select.campo-valido,
-.campo-grupo textarea.campo-valido {
-    border-color: var(--color-exito);
+.campo-valido {
+    border-color: var(--color-exito) !important;
 }
 
 .alerta-exito {
@@ -820,20 +623,9 @@ main {
     margin-top: var(--espacio-sm);
 }
 
-.pie-formulario {
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--color-texto-suave);
-}
-
-.pie-formulario a {
-    color: var(--color-primario);
-    font-weight: 600;
-}
-
-/* ---------------------------------------------------------------------
-   13. CARRITO DE COMPRAS
-   --------------------------------------------------------------------- */
+/* =====================================================================
+   8. CARRITO DE COMPRAS
+   ===================================================================== */
 .contenedor-carrito h1 {
     margin-bottom: var(--espacio-md);
 }
@@ -877,7 +669,6 @@ main {
 .descripcion-corta {
     color: var(--color-texto-suave);
     font-size: 0.85rem;
-    margin-bottom: 0.2rem;
 }
 
 .controles-cantidad {
@@ -914,31 +705,6 @@ main {
     font-family: var(--fuente-titulos);
     font-size: 1.15rem;
     color: var(--color-primario);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.35rem;
-}
-
-.btn-quitar-item {
-    font-family: inherit;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--color-error);
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-}
-
-.btn-quitar-item:hover {
-    text-decoration: underline;
-}
-
-.carrito-vacio {
-    text-align: center;
-    padding: var(--espacio-lg) 0;
-    color: var(--color-texto-suave);
 }
 
 .resumen-pago {
@@ -947,8 +713,6 @@ main {
     border-radius: var(--radio-borde);
     padding: var(--espacio-md);
     box-shadow: var(--sombra-tarjeta);
-    position: sticky;
-    top: 6rem;
     display: flex;
     flex-direction: column;
     gap: var(--espacio-sm);
@@ -988,21 +752,9 @@ main {
     border-radius: var(--radio-borde);
 }
 
-.input-cupon-grupo .boton-secundario {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-}
-
-.enlace-seguir-comprando {
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--color-primario);
-    font-weight: 600;
-}
-
-/* ---------------------------------------------------------------------
-   14. FOOTER
-   --------------------------------------------------------------------- */
+/* =====================================================================
+   9. FOOTER (Guía 2)
+   ===================================================================== */
 .pie-sitio {
     background-color: var(--color-primario-osc);
     color: #C9D3D9;
@@ -1040,42 +792,271 @@ main {
     font-size: 0.8rem;
 }
 
-/* ---------------------------------------------------------------------
-   15. RESPONSIVE
-   --------------------------------------------------------------------- */
-@media (max-width: 900px) {
-    .vista-producto-principal {
+/* =====================================================================
+   10. PANEL DE ADMINISTRACIÓN
+   ===================================================================== */
+body.layout-admin {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+    background-color: var(--color-fondo);
+    margin: 0;
+}
+
+.sidebar-admin {
+    background-color: var(--color-primario-osc);
+    color: #FFFFFF;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.marca-admin h2 {
+    color: #FFFFFF;
+    font-size: 1.35rem;
+    margin: 0;
+}
+
+.menu-admin {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-admin a {
+    display: block;
+    color: #D9E2E8;
+    padding: 0.7rem 1rem;
+    border-radius: var(--radio-borde);
+    font-weight: 500;
+    transition: background-color 0.15s ease;
+}
+
+.menu-admin a:hover,
+.menu-admin a.activo,
+.menu-admin a[aria-current="page"] {
+    background-color: var(--color-primario);
+    color: var(--color-acento);
+    font-weight: 700;
+}
+
+.contenido-panel {
+    padding: 2rem 1.5rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.barra-superior-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--color-borde);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.badge-rol {
+    background-color: var(--color-acento);
+    color: var(--color-primario-osc);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+}
+
+.resumen-estadisticas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tarjeta-kpi {
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: 1rem;
+    box-shadow: var(--sombra-tarjeta);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.tarjeta-kpi h3 {
+    font-size: 1rem;
+    color: var(--color-texto-suave);
+    margin: 0;
+}
+
+.numero-kpi {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--color-primario);
+    margin: 0.2rem 0;
+}
+
+.tarjeta-kpi.alerta-kpi {
+    border-left: 5px solid var(--color-error);
+}
+
+.tarjeta-kpi.alerta-kpi .numero-kpi {
+    color: var(--color-error);
+}
+
+.tarjeta-kpi a {
+    color: var(--color-primario);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: underline;
+    margin-top: auto;
+}
+
+.accesos-rapidos-admin {
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: 1rem;
+    box-shadow: var(--sombra-tarjeta);
+}
+
+.botones-rapidos {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+.boton-admin {
+    display: inline-block;
+    background-color: var(--color-acento);
+    color: var(--color-primario-osc);
+    font-weight: 600;
+    padding: 0.65rem 1.2rem;
+    border-radius: var(--radio-borde);
+}
+
+.tabla-contenedor,
+.contenedor-tabla {
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra-tarjeta);
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+.tabla-admin {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.92rem;
+}
+
+.tabla-admin th,
+.tabla-admin td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--color-borde);
+    vertical-align: middle;
+}
+
+.tabla-admin th {
+    background-color: #EAECEF;
+    color: var(--color-primario-osc);
+    font-weight: 700;
+}
+
+.tabla-admin tr:hover {
+    background-color: #F8F9FA;
+}
+
+.fila-alerta {
+    background-color: #FFF8E1;
+}
+
+.btn-accion-editar,
+.btn-accion-eliminar {
+    display: inline-block;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: var(--radio-borde);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-accion-editar {
+    background-color: var(--color-primario);
+    color: #FFFFFF !important;
+}
+
+.btn-accion-eliminar {
+    background-color: var(--color-error);
+    color: #FFFFFF !important;
+}
+
+/* =====================================================================
+   11. RESPONSIVE Y MENÚ HAMBURGUESA (Guía 7, sec. 11.4)
+   ===================================================================== */
+@media (max-width: 850px) {
+    body.layout-admin {
         grid-template-columns: 1fr;
     }
+}
 
-    .seccion-carrito-grid {
-        grid-template-columns: 1fr;
+@media (max-width: 768px) {
+    .barra-superior {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    .resumen-pago {
-        position: static;
+    /* Botón hamburguesa visible solo en celular o con zoom alto */
+    .boton-menu {
+        display: block;
+        order: 2;
+    }
+
+    .acciones-usuario {
+        order: 3;
+    }
+
+    /* El menú inicia oculto en pantalla pequeña */
+    #menu-principal {
+        display: none;
+        width: 100%;
+        order: 4;
+        background-color: var(--color-primario-osc);
+        border-radius: var(--radio-borde);
+        padding: var(--espacio-sm);
+        margin-top: var(--espacio-xs);
+    }
+
+    /* Se despliega al hacer clic mediante assets/js/menu.js */
+    #menu-principal.menu-abierto {
+        display: block;
+    }
+
+    .menu-lista {
+        flex-direction: column;
+        gap: var(--espacio-xs);
+    }
+
+    .fila-dos-campos {
+        grid-template-columns: 1fr;
     }
 
     .tarjeta-blog-horizontal {
         grid-template-columns: 1fr;
     }
 
-    .imagen-blog img {
-        max-height: 220px;
-    }
-}
-
-@media (max-width: 768px) {
-    .barra-superior {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .cabecera-sitio nav .menu {
-        gap: var(--espacio-sm);
-    }
-
-    .fila-dos-campos {
+    .seccion-carrito-grid {
         grid-template-columns: 1fr;
     }
 
@@ -1101,18 +1082,6 @@ main {
 
     .item-carrito .subtotal-item {
         grid-area: subtotal;
-        text-align: right;
-    }
-
-    main {
-        padding: var(--espacio-md);
-    }
-
-    .presentacion {
-        min-height: 320px;
-        background:
-            linear-gradient(180deg, rgba(20, 40, 53, 0.85), rgba(20, 40, 53, 0.9)),
-            url("../img/hero-productos.jpg") center / cover no-repeat;
     }
 }
 
@@ -1127,326 +1096,3 @@ main {
         flex-direction: column;
     }
 }
-<<<<<<< HEAD
-=======
-
-/* =====================================================================
-   PANEL DE ADMINISTRACIÓN (LAYOUT Y SIDEBAR)
-   ===================================================================== */
-body.layout-admin {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    min-height: 100vh;
-    background-color: var(--color-fondo, #F4F6F9);
-    margin: 0;
-}
-
-.sidebar-admin {
-    background-color: var(--color-primario-osc, #07253A);
-    color: #FFFFFF;
-    padding: 1.5rem 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
-}
-
-.marca-admin h2 {
-    color: #FFFFFF;
-    font-size: 1.35rem;
-    margin: 0;
-}
-
-.menu-admin {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.menu-admin a {
-    display: block;
-    color: #D9E2E8;
-    padding: 0.7rem 1rem;
-    border-radius: 6px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background-color 0.15s ease, color 0.15s ease;
-}
-
-.menu-admin a:hover,
-.menu-admin a.activo,
-.menu-admin a[aria-current="page"] {
-    background-color: var(--color-primario, #0B3C5D);
-    color: var(--color-acento, #D9B310);
-    font-weight: 700;
-}
-
-.contenido-panel {
-    padding: 2rem 1.5rem;
-    max-width: 1200px;
-    width: 100%;
-}
-
-.barra-superior-admin {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid var(--color-borde, #CFD8DC);
-    padding-bottom: 1rem;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.badge-rol {
-    background-color: var(--color-acento, #D9B310);
-    color: var(--color-primario-osc, #07253A);
-    font-size: 0.8rem;
-    font-weight: 700;
-    padding: 0.35rem 0.75rem;
-    border-radius: 999px;
-    text-transform: uppercase;
-}
-
-/* =====================================================================
-   ADMIN: KPIS Y ACCESOS RÁPIDOS
-   ===================================================================== */
-.resumen-estadisticas {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.tarjeta-kpi {
-    background-color: #FFFFFF;
-    border: 1px solid var(--color-borde, #CFD8DC);
-    border-radius: 6px;
-    padding: 1rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-}
-
-.tarjeta-kpi h3 {
-    font-size: 1rem;
-    color: var(--color-texto-suave, #596A7A);
-    margin: 0;
-}
-
-.numero-kpi {
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: var(--color-primario, #0B3C5D);
-    margin: 0.2rem 0;
-}
-
-.tarjeta-kpi.alerta-kpi {
-    border-left: 5px solid var(--color-error, #D32F2F);
-}
-
-.tarjeta-kpi.alerta-kpi .numero-kpi {
-    color: var(--color-error, #D32F2F);
-}
-
-.tarjeta-kpi a {
-    color: var(--color-primario, #0B3C5D);
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-decoration: underline;
-    margin-top: auto;
-}
-
-.accesos-rapidos-admin {
-    background-color: #FFFFFF;
-    border: 1px solid var(--color-borde, #CFD8DC);
-    border-radius: 6px;
-    padding: 1rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-}
-
-.botones-rapidos {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 0.5rem;
-}
-
-.boton-admin {
-    display: inline-block;
-    background-color: var(--color-acento, #D9B310);
-    color: var(--color-primario-osc, #07253A);
-    font-weight: 600;
-    padding: 0.65rem 1.2rem;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: opacity 0.15s;
-}
-
-.boton-admin:hover {
-    opacity: 0.9;
-}
-
-/* =====================================================================
-   ADMIN: TABLAS DE INVENTARIO Y USUARIOS
-   ===================================================================== */
-.tabla-contenedor,
-.contenedor-tabla {
-    background-color: #FFFFFF;
-    border: 1px solid var(--color-borde, #CFD8DC);
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    overflow-x: auto;
-    margin-top: 1rem;
-}
-
-.tabla-admin {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-    font-size: 0.92rem;
-}
-
-.tabla-admin th,
-.tabla-admin td {
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid var(--color-borde, #CFD8DC);
-    vertical-align: middle;
-}
-
-.tabla-admin th {
-    background-color: #EAECEF;
-    color: var(--color-primario-osc, #07253A);
-    font-weight: 700;
-}
-
-.tabla-admin tr:hover {
-    background-color: #F8F9FA;
-}
-
-.fila-alerta {
-    background-color: #FFF8E1;
-}
-
-.tabla-admin td:last-child {
-    display: flex;
-    gap: 0.45rem;
-    align-items: center;
-}
-
-.btn-accion-editar,
-.btn-accion-eliminar {
-    display: inline-block;
-    padding: 0.35rem 0.7rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    transition: opacity 0.15s ease;
-}
-
-.btn-accion-editar {
-    background-color: var(--color-primario, #0B3C5D);
-    color: #FFFFFF !important;
-}
-
-.btn-accion-eliminar {
-    background-color: var(--color-error, #D32F2F);
-    color: #FFFFFF !important;
-}
-
-.btn-accion-editar:hover,
-.btn-accion-eliminar:hover {
-    opacity: 0.85;
-}
-
-/* Ajuste responsive para la vista de administración */
-@media (max-width: 850px) {
-    body.layout-admin {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-
-.menu-lista {
-    display: flex;
-    gap: 1.5rem;
-    margin: 0;
-    padding: 0;
-}
-
-.menu-lista li {
-    list-style: none;
-}
-
-.menu-lista a {
-    color: #D9E2E8;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-
-
-/* MENU HAMBURGUESA */
-
-.boton-menu {
-    display: none;
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-/* MODO MOVIL */
-@media (max-width: 768px) {
-
-    .boton-menu {
-        display: block;
-    }
-
-    #menu-principal {
-        display: none;
-        width: 100%;
-    }
-
-    #menu-principal.menu-abierto {
-        display: block;
-    }
-
-    .menu-lista {
-        flex-direction: column;
-        gap: 0.75rem;
-        margin-top: 1rem;
-    }
-
-    .acciones-usuario {
-        margin-top: 1rem;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
-
-/* ESCRITORIO */
-@media (min-width: 769px) {
-
-    #menu-principal {
-        display: flex !important;
-        align-items: center;
-        justify-content: space-between;
-        flex: 1;
-    }
-
-    .boton-menu {
-        display: none;
-    }
-}
->>>>>>> 9854b380e26a101c3f3a009f2e2a47a12903f7fc
